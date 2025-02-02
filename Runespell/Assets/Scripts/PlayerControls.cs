@@ -23,10 +23,17 @@ public class PlayerControls : MonoBehaviour
     [SerializeField]
     private TrailRenderer tr;
 
+    private Vector2 screenBounds;
+    private float playerHalfWidth;
+    private float playerHalfHeight;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         tr.emitting = false;
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        playerHalfWidth = GetComponent<SpriteRenderer>().bounds.extents.x / 2;
+        playerHalfHeight = GetComponent<SpriteRenderer>().bounds.extents.y / 2;
     }
 
     private void OnMovement(InputValue value)
@@ -36,59 +43,58 @@ public class PlayerControls : MonoBehaviour
 
     private IEnumerator OnDash()
     {
-        canDash = false; // Disable dashing during the dash
+        canDash = false;
         isDashing = true;
-
-        rb.velocity = new Vector2(movement.x * dashingSpeed, movement.y * dashingSpeed);
         tr.emitting = true;
 
-        yield return new WaitForSeconds(dashingTime); // Dash duration
+        // Calculate the dash direction and target position
+        Vector2 dashDirection = new Vector2(movement.x, movement.y).normalized;
+        Vector2 startPosition = rb.position;
+        Vector2 targetPosition = startPosition + dashDirection * dashingSpeed;
+
+        // Clamps the target position to screen bounds
+        targetPosition.x = Mathf.Clamp(targetPosition.x, -screenBounds.x + playerHalfWidth, screenBounds.x - playerHalfWidth);
+        targetPosition.y = Mathf.Clamp(targetPosition.y, -screenBounds.y + playerHalfHeight, screenBounds.y - playerHalfHeight);
+
+        // Smoothly move towards the target position
+        // TODO: Switch from a Lerp to something else so that it doesn't abrubtly stop you
+        float elapsedTime = 0f;
+        while (elapsedTime < dashingTime)
+        {
+            rb.MovePosition(Vector2.Lerp(startPosition, targetPosition, elapsedTime / dashingTime));
+            elapsedTime += Time.fixedDeltaTime;
+            yield return null;
+        }
+
+        rb.MovePosition(targetPosition);
+
+        yield return new WaitForSeconds(dashingTime); 
         tr.emitting = false;
         isDashing = false;
 
         // Wait for the cooldown before allowing another dash
-        // This doesn't work for some reason
+        // TODO: Make this work
         yield return new WaitForSeconds(dashingCooldown);
-        canDash = true; // Re-enable dashing after cooldown
+        canDash = true; 
     }
 
     private void FixedUpdate()
     {
-        // This prevents you from moving if you are currently dashing
         if (isDashing)
         {
             return;
         }
 
-        // Check if the dash key is pressed
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(OnDash());
         }
 
+        // Clamp position before applying movement
+        float clampedX = Mathf.Clamp(rb.position.x, -screenBounds.x + playerHalfWidth, screenBounds.x - playerHalfWidth);
+        float clampedY = Mathf.Clamp(rb.position.y, -screenBounds.y + playerHalfHeight, screenBounds.y - playerHalfHeight);
+        Vector2 clampedPosition = new Vector2(clampedX, clampedY);
 
-        // Most basic movement code
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
-
-
-
-        // This code uses velocity to move
-        // It is slowed down by the Linear Drag variable of the Rigidbody 2D
-        // The lower the Drag, the less friction there is, and the longer it
-        // takes to slow down the movement after you release.
-
-        // if (movement.x != 0 || movement.y != 0)
-        // {
-        //     rb.velocity = movement * speed;
-        // }
-
-
-
-        // This code uses forces to move.
-        // To use it, you have to increase the speed by a lot
-        // Mess around with the speed and Linear Drag variables
-        // Until the movement feels good
-
-        // rb.AddForce(movement * speed);
+        rb.MovePosition(clampedPosition + movement * speed * Time.fixedDeltaTime);
     }
 }

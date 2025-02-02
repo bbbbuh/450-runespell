@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.5
-  dashingSpeed: 50
+  dashingSpeed: 5
   dashingTime: 0.3
   dashingCooldown: 1
   tr: {fileID: 1773010776}
