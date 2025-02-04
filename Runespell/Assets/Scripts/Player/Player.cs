@@ -9,7 +9,10 @@ public class Player : Character
     private float width = 0.1f;
     [SerializeField]
     private float height = 0.1f;
-    [SerializeField] float health = 100;
+    [SerializeField] private float health = 100;
+    [SerializeField] float lastHit = 0;
+    [SerializeField] float damageCooldown = 0.5f;
+
 
 
     // Start is called before the first frame update
@@ -27,7 +30,11 @@ public class Player : Character
     //Deals damage to the player
     public void TakeDamage(float amount)
     {
-        health -= amount;
+        if (Time.time-lastHit>damageCooldown)
+        {
+            lastHit = Time.time;
+            health -= amount;
+        }
     }
 
     //Get and set statements
