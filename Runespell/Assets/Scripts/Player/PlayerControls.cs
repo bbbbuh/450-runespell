@@ -14,8 +14,8 @@ public class PlayerControls : MonoBehaviour
     private Rigidbody2D rb;
 
     // Variables for dashing
-    private bool canDash = true;
-    private bool isDashing = false;
+    [SerializeField] private bool canDash = true;
+    [SerializeField] private bool isDashing = false;
     [SerializeField] private float dashingSpeed = 25.0f;
     [SerializeField] private float dashingTime = 0.2f;
     [SerializeField] private float dashingCooldown = 10.0f;
