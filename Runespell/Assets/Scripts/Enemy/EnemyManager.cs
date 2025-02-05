@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("spawnEnemy", 2.0f, 2.0f);
+        InvokeRepeating("SpawnEnemy", 2.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -24,7 +24,26 @@ public class EnemyManager : MonoBehaviour
     //Spawns an enemy
     void SpawnEnemy()
     {
-        GameObject enemy = Instantiate(enemyPrefab, new Vector2(1f, 1f), Quaternion.identity);
+        int spawnLocation = Random.Range(1, 5);
+        Vector2 coordinates;
+        if (spawnLocation == 1)
+        {
+            coordinates = new Vector2(-10, 5);
+        }
+        else if (spawnLocation == 2) 
+        {
+            coordinates = new Vector2(10, 5);
+        }
+        else if (spawnLocation == 3)
+        {
+            coordinates = new Vector2(-10, -5);
+        }
+        else
+        {
+            coordinates = new Vector2(10, -5);
+        }
+
+        GameObject enemy = Instantiate(enemyPrefab, coordinates, Quaternion.identity);
         enemy.GetComponent<Enemy>().Target= player;
         enemyList.Add(enemy);
     }
