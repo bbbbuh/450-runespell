@@ -30,11 +30,11 @@ public class ProjectileController : MonoBehaviour
     private float tenSecTimer = 0;
 
     //targets
-    private GameObject closestTarget;
-    private GameObject farthestTarget;
+    private Enemy closestTarget;
+    private Enemy farthestTarget;
 
-    public GameObject ClosestTarget { get { return closestTarget; } set { closestTarget = value; } }
-    public GameObject FarthestTarget { get { return FarthestTarget; } set { FarthestTarget = value; } }
+    public Enemy ClosestTarget { get { return closestTarget; } set { closestTarget = value; } }
+    public Enemy FarthestTarget { get { return farthestTarget; } set { farthestTarget = value; } }
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +56,7 @@ public class ProjectileController : MonoBehaviour
         //find closest and farthest enemies
         float closest = 10000.0f;
         float farthest = 0.0f;
-        foreach (GameObject e in enemyManager.EnemyList)
+        foreach (Enemy e in enemyManager.EnemyList)
         {
             float distance = Vector2.Distance(player.transform.position, e.transform.position);
             if (distance < closest)
