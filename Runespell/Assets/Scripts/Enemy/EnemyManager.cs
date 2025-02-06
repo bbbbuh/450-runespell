@@ -5,20 +5,26 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
 
-    [SerializeField] private List<Enemy> enemyList;
-    [SerializeField] private Enemy enemyPrefab;
+    [SerializeField] private List<GameObject> enemyList;
+    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SpawnEnemy", 2.0f, 2.0f);
+        //SpawnEnemy();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //EnemyCleanup();
+        
+    }
+
+    private void LateUpdate()
+    {
+        EnemyCleanup();
     }
 
     //Spawns an enemy
@@ -43,13 +49,13 @@ public class EnemyManager : MonoBehaviour
             coordinates = new Vector2(10, -5);
         }
 
-        Enemy enemy = Instantiate(enemyPrefab, coordinates, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefab, coordinates, Quaternion.identity);
         enemy.GetComponent<Enemy>().Target= player;
         enemyList.Add(enemy);
     }
 
     //Removes dead enemies
-    /*void EnemyCleanup()
+    void EnemyCleanup()
     {
         if (enemyList != null)
         {
@@ -66,10 +72,10 @@ public class EnemyManager : MonoBehaviour
             }
         }
         
-    }*/
+    }
 
     //Get and set statements
-    public List<Enemy> EnemyList { 
+    public List<GameObject> EnemyList { 
         get { return enemyList; } 
     }
 }

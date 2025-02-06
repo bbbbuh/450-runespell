@@ -30,11 +30,11 @@ public class ProjectileController : MonoBehaviour
     private float tenSecTimer = 0;
 
     //targets
-    private Enemy closestTarget;
-    private Enemy farthestTarget;
+    private GameObject closestTarget;
+    private GameObject farthestTarget;
 
-    public Enemy ClosestTarget { get { return closestTarget; } set { closestTarget = value; } }
-    public Enemy FarthestTarget { get { return farthestTarget; } set { farthestTarget = value; } }
+    public GameObject ClosestTarget { get { return closestTarget; } set { closestTarget = value; } }
+    public GameObject FarthestTarget { get { return farthestTarget; } set { farthestTarget = value; } }
 
     // Start is called before the first frame update
     void Start()
@@ -56,9 +56,9 @@ public class ProjectileController : MonoBehaviour
         //find closest and farthest enemies
         float closest = 10000.0f;
         float farthest = 0.0f;
-        foreach (Enemy e in enemyManager.EnemyList)
+        foreach (GameObject e in enemyManager.EnemyList)
         {
-            float distance = Vector2.Distance(player.transform.position, e.transform.position);
+            float distance = Vector2.Distance(player.transform.position, e.GetComponent<Enemy>().transform.position);
             if (distance < closest)
             {
                 closest = distance;
@@ -78,7 +78,7 @@ public class ProjectileController : MonoBehaviour
         tenSecTimer += Time.deltaTime;
 
         //fire spells when timer finishes
-        if (twoSecTimer >= 2.0f && twoSecSlot != null)
+        if (twoSecTimer >= 0.5f && twoSecSlot != null)
         {
             twoSecTimer = 0;
             twoSecSlot.Fire();
@@ -95,6 +95,11 @@ public class ProjectileController : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        projectileCleanup();
+    }
+
     void instantiateManagers(Spell spell, float mult)
     {
         if (spell != null)
@@ -105,5 +110,24 @@ public class ProjectileController : MonoBehaviour
             spell.SetProjectileMult(mult);
         }
         
+    }
+
+    //Removes used enemies
+    void projectileCleanup()
+    {
+        if (projectiles != null)
+        {
+            for (int i = 0; i < projectiles.Count; i++)
+            {
+                if (projectiles[i] != null)
+                {
+                    if (projectiles[i].GetComponent<Projectile>().Used)
+                    {
+                        Destroy(projectiles[i].gameObject);
+                        projectiles.RemoveAt(i);
+                    }
+                }
+            }
+        }
     }
 }

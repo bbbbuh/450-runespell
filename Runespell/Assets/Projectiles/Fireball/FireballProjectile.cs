@@ -21,4 +21,6 @@ public class FireballProjectile : Projectile
         Vector2 newPosition = transform.position + (direction * speed * Time.deltaTime);
         transform.position = newPosition;
     }
+
+    
 }

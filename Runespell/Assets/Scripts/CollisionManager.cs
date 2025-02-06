@@ -28,7 +28,7 @@ public class CollisionManager : MonoBehaviour
     //Also damages player
     void PlayerEnemyCollision()
     {
-        List<Enemy> enemyList = enemyManager.EnemyList;
+        List<GameObject> enemyList = enemyManager.EnemyList;
         Vector2 playerPos = player.transform.position;
         float playerWidth = player.GetComponent<Player>().Width;
         float playerHeight = player.GetComponent<Player>().Height;
@@ -50,21 +50,20 @@ public class CollisionManager : MonoBehaviour
     //damages enemies and handles death for enemies and projectiles
     void ProjectileEnemyCollision()
     {
-        List<Enemy> enemyList = enemyManager.EnemyList;
+        List<GameObject> enemyList = enemyManager.EnemyList;
         List<Projectile> projectiles = projectileController.Projectiles;
         if (enemyList != null && projectiles != null) 
         {
-            for (int j = projectiles.Count - 1; j > 0; j--)
+            for (int j = projectiles.Count - 1; j >= 0; j--)
             {
-                for (int i = enemyList.Count - 1; i > 0; i--)
+                for (int i = enemyList.Count - 1; i >= 0; i--)
                 {
+                    Debug.Log(j);
                     if (CheckCollision(projectiles[j].transform.position, 1.0f, 1.0f, enemyList[i].transform.position,
                         enemyList[i].GetComponent<Enemy>().Width, enemyList[i].GetComponent<Enemy>().Height))
                     {
-                        enemyList[i].Health -= projectiles[j].BaseDamage;
-                        Projectile tempProj = projectiles[j];
-                        projectiles.RemoveAt(j);
-                        Destroy(tempProj.gameObject);
+                        enemyList[i].GetComponent<Enemy>().Health -= projectiles[j].BaseDamage;
+                        projectiles[j].Used=true;
 
                         /*if (enemyList[i].Health <= 0)
                         {

@@ -11,14 +11,14 @@ public class Spell : MonoBehaviour
     //get external manager classes
     protected ProjectileController projectileController;
     protected Player player;
-    protected Enemy closestTarget;
-    protected Enemy farthestTarget;
+    protected GameObject closestTarget;
+    protected GameObject farthestTarget;
 
 
     public ProjectileController ProjectileController { get { return projectileController; } set { projectileController = value; } }
     public Player Player { get { return player; } set { player = value; } }
-    public Enemy ClosestTarget { get { return closestTarget; } set { closestTarget = value; } }
-    public Enemy FarthestTarget { get { return farthestTarget; } set { farthestTarget = value; } }
+    public GameObject ClosestTarget { get { return closestTarget; } set { closestTarget = value; } }
+    public GameObject FarthestTarget { get { return farthestTarget; } set { farthestTarget = value; } }
     public float Multiplier { get { return multiplier; } set { multiplier = value; } }
 
     // Start is called before the first frame update

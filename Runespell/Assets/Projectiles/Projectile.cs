@@ -13,6 +13,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     protected float speed;
 
+    [SerializeField]
+    protected bool used;
+
     protected Player player;
 
     protected Vector3 direction;
@@ -32,6 +35,12 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool Used
+    {
+        get { return used; }
+        set { used = value; }
     }
 
 }

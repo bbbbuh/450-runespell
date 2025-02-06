@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList: []
-  enemyPrefab: {fileID: 994691778643248135, guid: cf6b09447f14dee44bf85995a712cb3e, type: 3}
+  enemyPrefab: {fileID: 4515889354722947207, guid: cf6b09447f14dee44bf85995a712cb3e, type: 3}
   player: {fileID: 1773010769}
 --- !u!4 &134715014
 Transform:
