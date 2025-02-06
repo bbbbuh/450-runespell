@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 134715013}
+  projectileController: {fileID: 2022620662}
   player: {fileID: 1773010769}
   playerHeight: 0.1
   playerWidth: 0.1
@@ -314,6 +315,54 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4543529233121467435, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
   m_PrefabInstance: {fileID: 9177417910921660595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2022620661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2022620663}
+  - component: {fileID: 2022620662}
+  m_Layer: 0
+  m_Name: ProjectileController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2022620662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022620661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c11803fc15b30438a926aae310696d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectiles: []
+  twoSecSlot: {fileID: 1831416182616823118, guid: 9aa07a268ab2f244693148f1a5c1d4f3, type: 3}
+  fiveSecSlot: {fileID: 0}
+  tenSecSlot: {fileID: 0}
+--- !u!4 &2022620663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022620661}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0901482, y: -0.5129995, z: 0.023874445}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9177417910921660595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,3 +432,4 @@ SceneRoots:
   - {fileID: 9177417910921660595}
   - {fileID: 134715014}
   - {fileID: 374950856}
+  - {fileID: 2022620663}
