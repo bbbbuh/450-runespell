@@ -7,6 +7,7 @@ using UnityEngine;
 public class CollisionManager : MonoBehaviour
 {
     [SerializeField] EnemyManager enemyManager;
+    [SerializeField] ProjectileController projectileController;
     [SerializeField] GameObject player;
     [SerializeField] float playerHeight = 0.1f;
     [SerializeField] float playerWidth = 0.1f;
