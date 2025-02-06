@@ -21,13 +21,14 @@ public class CollisionManager : MonoBehaviour
     void Update()
     {
         PlayerEnemyCollision();
+        ProjectileEnemyCollision();
     }
 
     //Handles collisions between enemies and players
     //Also damages player
     void PlayerEnemyCollision()
     {
-        List<GameObject> enemyList = enemyManager.EnemyList;
+        List<Enemy> enemyList = enemyManager.EnemyList;
         Vector2 playerPos = player.transform.position;
         float playerWidth = player.GetComponent<Player>().Width;
         float playerHeight = player.GetComponent<Player>().Height;
@@ -39,6 +40,39 @@ public class CollisionManager : MonoBehaviour
                     enemyList[i].GetComponent<Enemy>().Width, enemyList[i].GetComponent<Enemy>().Height))
                 {
                     player.GetComponent<Player>().TakeDamage(enemyList[i].GetComponent<Enemy>().Damage);
+                }
+            }
+        }
+        
+    }
+
+    //handles collisions between projectiles and enemies
+    //damages enemies and handles death for enemies and projectiles
+    void ProjectileEnemyCollision()
+    {
+        List<Enemy> enemyList = enemyManager.EnemyList;
+        List<Projectile> projectiles = projectileController.Projectiles;
+        if (enemyList != null && projectiles != null) 
+        {
+            for (int j = projectiles.Count - 1; j > 0; j--)
+            {
+                for (int i = enemyList.Count - 1; i > 0; i--)
+                {
+                    if (CheckCollision(projectiles[j].transform.position, 1.0f, 1.0f, enemyList[i].transform.position,
+                        enemyList[i].GetComponent<Enemy>().Width, enemyList[i].GetComponent<Enemy>().Height))
+                    {
+                        enemyList[i].Health -= projectiles[j].BaseDamage;
+                        Projectile tempProj = projectiles[j];
+                        projectiles.RemoveAt(j);
+                        Destroy(tempProj.gameObject);
+
+                        /*if (enemyList[i].Health <= 0)
+                        {
+                            Enemy tempEnemy = enemyList[i];
+                            enemyList.RemoveAt(i);
+                            Destroy(tempEnemy.gameObject);
+                        }*/
+                    }
                 }
             }
         }
