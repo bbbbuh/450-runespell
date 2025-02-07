@@ -23,6 +23,12 @@ public class PlayerControls : MonoBehaviour
     [SerializeField]
     private TrailRenderer tr;
 
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private bool casting;
+
     private Vector2 screenBounds;
     private float playerHalfWidth;
     private float playerHalfHeight;
@@ -78,6 +84,50 @@ public class PlayerControls : MonoBehaviour
         canDash = true; 
     }
 
+    private void Animations()
+    {
+        if (movement.x > 0)
+        {
+            animator.SetBool("WalkingLeft", false);
+            animator.SetBool("WalkingUp", false);
+            animator.SetBool("WalkingDown", false);
+            animator.SetBool("WalkingRight", true);
+        }
+        else if (movement.x < 0)
+        {
+            animator.SetBool("WalkingRight", false);
+            animator.SetBool("WalkingUp", false);
+            animator.SetBool("WalkingDown", false);
+            animator.SetBool("WalkingLeft", true);
+        }
+        else if (movement.y > 0)
+        {
+            animator.SetBool("WalkingLeft", false);
+            animator.SetBool("WalkingRight", false);
+            animator.SetBool("WalkingDown", false);
+            animator.SetBool("WalkingUp", true);
+        }
+        else if (movement.y < 0)
+        {
+            animator.SetBool("WalkingLeft", false);
+            animator.SetBool("WalkingRight", false);
+            animator.SetBool("WalkingUp", false);
+            animator.SetBool("WalkingDown", true);
+        }
+        else
+        {
+            animator.SetBool("WalkingLeft", false);
+            animator.SetBool("WalkingRight", false);
+            animator.SetBool("WalkingUp", false);
+            animator.SetBool("WalkingDown", false);
+        }
+        if (casting)
+        {
+            animator.SetTrigger("Casting");
+            casting = false;
+        }
+    }
+
     private void FixedUpdate()
     {
         if (isDashing)
@@ -96,5 +146,10 @@ public class PlayerControls : MonoBehaviour
         Vector2 clampedPosition = new Vector2(clampedX, clampedY);
 
         rb.MovePosition(clampedPosition + movement * speed * Time.fixedDeltaTime);
+
+        Animations();
     }
+
+    public bool Casting 
+    { get { return casting; } set {  casting = value; } }
 }

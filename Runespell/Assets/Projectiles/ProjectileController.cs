@@ -82,16 +82,21 @@ public class ProjectileController : MonoBehaviour
         {
             twoSecTimer = 0;
             twoSecSlot.Fire();
+            player.gameObject.GetComponent<PlayerControls>().Casting = true;
         }
         if (fiveSecTimer >= 5.0f && fiveSecSlot != null)
         {
             fiveSecTimer = 0;
             fiveSecSlot.Fire();
+            player.gameObject.GetComponent<PlayerControls>().Casting = true;
+
         }
         if (tenSecTimer >= 10.0f && tenSecSlot != null)
         {   
             tenSecTimer = 0;
             tenSecSlot.Fire();
+            player.gameObject.GetComponent<PlayerControls>().Casting = true;
+
         }
     }
 
@@ -112,16 +117,16 @@ public class ProjectileController : MonoBehaviour
         
     }
 
-    //Removes used enemies
+    //Removes used projectiles
     void projectileCleanup()
     {
         if (projectiles != null)
         {
-            for (int i = 0; i < projectiles.Count; i++)
+            for (int i = projectiles.Count-1; i >= 0; i--)
             {
                 if (projectiles[i] != null)
                 {
-                    if (projectiles[i].GetComponent<Projectile>().Used)
+                    if (projectiles[i].GetComponent<Projectile>().Used || Time.time - projectiles[i].GetComponent<Projectile>().TimeCast >5)
                     {
                         Destroy(projectiles[i].gameObject);
                         projectiles.RemoveAt(i);

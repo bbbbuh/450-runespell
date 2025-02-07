@@ -47,7 +47,6 @@ public class CollisionManager : MonoBehaviour
     }
 
     //handles collisions between projectiles and enemies
-    //damages enemies and handles death for enemies and projectiles
     void ProjectileEnemyCollision()
     {
         List<GameObject> enemyList = enemyManager.EnemyList;
@@ -58,8 +57,7 @@ public class CollisionManager : MonoBehaviour
             {
                 for (int i = enemyList.Count - 1; i >= 0; i--)
                 {
-                    Debug.Log(j);
-                    if (CheckCollision(projectiles[j].transform.position, 1.0f, 1.0f, enemyList[i].transform.position,
+                    if (CheckCollision(projectiles[j].transform.position, 0.2f, 0.2f, enemyList[i].transform.position,
                         enemyList[i].GetComponent<Enemy>().Width, enemyList[i].GetComponent<Enemy>().Height))
                     {
                         enemyList[i].GetComponent<Enemy>().Health -= projectiles[j].BaseDamage;
@@ -81,6 +79,10 @@ public class CollisionManager : MonoBehaviour
     //Checks collision between any two objects
     bool CheckCollision(Vector2 pos1, float width1, float height1, Vector2 pos2, float width2, float height2)
     {
+        pos1.x -= width1/2;
+        pos1.y -= height1/2;
+        pos2.x -= width2/2;
+        pos2.y -= height2/2;
         return (pos1.x < pos2.x + width2 && pos1.x + width1 > pos2.x && pos1.y < pos2.y + height2 && pos1.y + height1 > pos2.y);
     }
 }

@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Character
 {
+    TMPro.TextMeshPro textMeshPro;
     [SerializeField]
     private float width = 0.1f;
     [SerializeField]
@@ -12,7 +15,8 @@ public class Player : Character
     [SerializeField] private float health = 100;
     [SerializeField] float lastHit = 0;
     [SerializeField] float damageCooldown = 0.5f;
-
+    [SerializeField] private string loseScene;
+    [SerializeField] private TextMeshProUGUI healthText;
 
 
     // Start is called before the first frame update
@@ -34,6 +38,11 @@ public class Player : Character
         {
             lastHit = Time.time;
             health -= amount;
+            healthText.text = "Health: " + health;
+            if (health <= 0)
+            {
+                SceneManager.LoadScene(loseScene);
+            }
         }
     }
 

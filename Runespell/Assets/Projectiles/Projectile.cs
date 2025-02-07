@@ -16,6 +16,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     protected bool used;
 
+    [SerializeField]
+    protected float timeCast;
+
     protected Player player;
 
     protected Vector3 direction;
@@ -42,5 +45,7 @@ public class Projectile : MonoBehaviour
         get { return used; }
         set { used = value; }
     }
+    public float TimeCast 
+    {  get { return timeCast; } set {  timeCast = value; } }
 
 }

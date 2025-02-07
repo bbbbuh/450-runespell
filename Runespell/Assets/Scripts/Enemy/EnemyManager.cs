@@ -34,20 +34,21 @@ public class EnemyManager : MonoBehaviour
         Vector2 coordinates;
         if (spawnLocation == 1)
         {
-            coordinates = new Vector2(-10, 5);
+            coordinates = new Vector2(Random.Range(-10, 11), 5);
         }
-        else if (spawnLocation == 2) 
+        else if (spawnLocation == 2)
         {
-            coordinates = new Vector2(10, 5);
+            coordinates = new Vector2(Random.Range(-10, 11), -5);
         }
         else if (spawnLocation == 3)
         {
-            coordinates = new Vector2(-10, -5);
+            coordinates = new Vector2(-10, Random.Range(-5, 5));
         }
         else
         {
-            coordinates = new Vector2(10, -5);
+            coordinates = new Vector2(10, Random.Range(-5, 5));
         }
+
 
         GameObject enemy = Instantiate(enemyPrefab, coordinates, Quaternion.identity);
         enemy.GetComponent<Enemy>().Target= player;

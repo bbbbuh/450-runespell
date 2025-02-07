@@ -15,17 +15,22 @@ public class Enemy : Character
     private float damage = 10;
 
     [SerializeField]
-    private float width = 1;
+    private float width = 0.7f;
     [SerializeField]
-    private float height = 1;
+    private float height = 0.7f;
 
     [SerializeField]
     private float health = 100;
 
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private Vector2 positionDifference;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,9 +38,51 @@ public class Enemy : Character
     {
         //Moves enemy towards player
         Vector2 newPosition = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        positionDifference = newPosition - new Vector2(transform.position.x,transform.position.y);
         transform.position = newPosition;
+
+        animations();
     }
 
+    void animations()
+    {
+        if (Mathf.Abs(positionDifference.x)> Mathf.Abs(positionDifference.y))
+        {
+            if (positionDifference.x > 0)
+            {
+                animator.SetBool("WalkingLeft", false);
+                animator.SetBool("WalkingUp", false);
+                animator.SetBool("WalkingDown", false);
+                animator.SetBool("WalkingRight", true);
+            }
+            else if (positionDifference.x < 0)
+            {
+                animator.SetBool("WalkingRight", false);
+                animator.SetBool("WalkingUp", false);
+                animator.SetBool("WalkingDown", false);
+                animator.SetBool("WalkingLeft", true);
+            }
+        }
+        else
+        {
+            if (positionDifference.y > 0)
+            {
+                animator.SetBool("WalkingLeft", false);
+                animator.SetBool("WalkingRight", false);
+                animator.SetBool("WalkingDown", false);
+                animator.SetBool("WalkingUp", true);
+            }
+            else if (positionDifference.y < 0)
+            {
+                animator.SetBool("WalkingLeft", false);
+                animator.SetBool("WalkingRight", false);
+                animator.SetBool("WalkingUp", false);
+                animator.SetBool("WalkingDown", true);
+            }
+        }
+        
+        
+    }
 
     //Get and set statements
     public GameObject Target {  

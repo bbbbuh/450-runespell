@@ -36,6 +36,7 @@ public class FireballSpell : Spell
             Projectile proj = Instantiate(fireballProjectile, player.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             proj.Direction = direction;
             projectileController.Projectiles.Add(proj);
+            proj.GetComponent<Projectile>().TimeCast = Time.time;
         }
         
     }
