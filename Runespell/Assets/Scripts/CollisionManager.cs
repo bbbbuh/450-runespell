@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float playerHeight = 0.1f;
     [SerializeField] float playerWidth = 0.1f;
+    [SerializeField] string nextScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class CollisionManager : MonoBehaviour
     {
         PlayerEnemyCollision();
         ProjectileEnemyCollision();
+        PlayerExitCollision();
     }
 
     //Handles collisions between enemies and players
@@ -74,6 +77,17 @@ public class CollisionManager : MonoBehaviour
             }
         }
         
+    }
+
+    void PlayerExitCollision()
+    {
+        if(enemyManager.Exit!=null)
+        {
+            if (CheckCollision(enemyManager.Exit.transform.position, 1,1, player.transform.position, player.GetComponent<Player>().Width, player.GetComponent<Player>().Height))
+            {
+                SceneManager.LoadScene(nextScene);
+            }
+        }
     }
 
     //Checks collision between any two objects
