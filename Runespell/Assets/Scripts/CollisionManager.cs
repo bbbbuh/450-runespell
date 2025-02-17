@@ -12,11 +12,11 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float playerHeight = 0.1f;
     [SerializeField] float playerWidth = 0.1f;
-    [SerializeField] string nextScene;
+    [SerializeField] GameObject gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -85,7 +85,7 @@ public class CollisionManager : MonoBehaviour
         {
             if (CheckCollision(enemyManager.Exit.transform.position, 1,1, player.transform.position, player.GetComponent<Player>().Width, player.GetComponent<Player>().Height))
             {
-                SceneManager.LoadScene(nextScene);
+                gameManager.GetComponent<GameManager>().NextScene = true;
             }
         }
     }

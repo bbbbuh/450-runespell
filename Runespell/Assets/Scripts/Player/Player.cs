@@ -39,14 +39,11 @@ public class Player : Character
             lastHit = Time.time;
             health -= amount;
             healthText.text = "Health: " + health;
-            if (health <= 0)
-            {
-                SceneManager.LoadScene(loseScene);
-            }
         }
     }
 
     //Get and set statements
     public float Width { get { return width; } }
     public float Height { get { return height; } }
+    public float Health { get { return health; } }
 }
