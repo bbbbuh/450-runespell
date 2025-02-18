@@ -107,6 +107,7 @@ MonoBehaviour:
   height: 1
   health: 100
   animator: {fileID: 6759337165510267149}
+  positionDifference: {x: 0, y: 0}
 --- !u!50 &8115990060465965844
 Rigidbody2D:
   serializedVersion: 4

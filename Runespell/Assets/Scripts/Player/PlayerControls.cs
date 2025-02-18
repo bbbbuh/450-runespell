@@ -10,6 +10,10 @@ public class PlayerControls : MonoBehaviour
     [SerializeField]
     private float speed = 1;
 
+    // gets data from the virtual Joystick
+    [SerializeField]
+    private VirtualJoystick virtualJoystick;
+
     private Vector2 movement;
     private Rigidbody2D rb;
 
@@ -44,7 +48,8 @@ public class PlayerControls : MonoBehaviour
 
     private void OnMovement(InputValue value)
     {
-        movement = value.Get<Vector2>();
+        //movement = value.Get<Vector2>();
+        movement = virtualJoystick.JoystickInput;
     }
 
     private IEnumerator OnDash()
@@ -144,6 +149,9 @@ public class PlayerControls : MonoBehaviour
         float clampedX = Mathf.Clamp(rb.position.x, -screenBounds.x + playerHalfWidth, screenBounds.x - playerHalfWidth);
         float clampedY = Mathf.Clamp(rb.position.y, -screenBounds.y + playerHalfHeight, screenBounds.y - playerHalfHeight);
         Vector2 clampedPosition = new Vector2(clampedX, clampedY);
+
+        // Comment out the below line to disable mobile joystick
+        movement = virtualJoystick.JoystickInput;
 
         rb.MovePosition(clampedPosition + movement * speed * Time.fixedDeltaTime);
 
