@@ -36,7 +36,7 @@ public class PlayerControls : MonoBehaviour
     private Vector2 screenBounds;
     private float playerHalfWidth;
     private float playerHalfHeight;
-
+     
 
     private Vector2 touchStartPosition;
     private Vector2 touchEndPosition;
