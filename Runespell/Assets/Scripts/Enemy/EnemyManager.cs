@@ -8,18 +8,22 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<GameObject> enemyList;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject player;
+    [SerializeField] private Transform spawnLocations;
+    [SerializeField] private float numEnemies;
+    [SerializeField] private GameObject exitPrefab;
+    [SerializeField] private GameObject exit;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 2.0f, 2.0f);
-        //SpawnEnemy();
+        //InvokeRepeating("SpawnEnemy", 2.0f, 2.0f);
+        SpawnEnemy();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SpawnExit();
     }
 
     private void LateUpdate()
@@ -30,29 +34,18 @@ public class EnemyManager : MonoBehaviour
     //Spawns an enemy
     void SpawnEnemy()
     {
-        int spawnLocation = Random.Range(1, 5);
-        Vector2 coordinates;
-        if (spawnLocation == 1)
+        foreach (Transform child in spawnLocations)
         {
-            coordinates = new Vector2(Random.Range(-10, 11), 5);
+            if (child.gameObject.tag == tag)
+            {
+                if (enemyList.Count < numEnemies)
+                {
+                    GameObject enemy = Instantiate(enemyPrefab, child.gameObject.transform.position, Quaternion.identity);
+                    enemy.GetComponent<Enemy>().Target = player;
+                    enemyList.Add(enemy);
+                }
+            }
         }
-        else if (spawnLocation == 2)
-        {
-            coordinates = new Vector2(Random.Range(-10, 11), -5);
-        }
-        else if (spawnLocation == 3)
-        {
-            coordinates = new Vector2(-10, Random.Range(-5, 5));
-        }
-        else
-        {
-            coordinates = new Vector2(10, Random.Range(-5, 5));
-        }
-
-
-        GameObject enemy = Instantiate(enemyPrefab, coordinates, Quaternion.identity);
-        enemy.GetComponent<Enemy>().Target= player;
-        enemyList.Add(enemy);
     }
 
     //Removes dead enemies
@@ -75,8 +68,17 @@ public class EnemyManager : MonoBehaviour
         
     }
 
+    void SpawnExit()
+    {
+        if (enemyList.Count == 0 && exit == null)
+        {
+            exit = Instantiate(exitPrefab, new Vector2(0,4.5f), Quaternion.identity);
+        }
+    }
+
     //Get and set statements
     public List<GameObject> EnemyList { 
         get { return enemyList; } 
     }
+    public GameObject Exit {  get { return exit; } }
 }

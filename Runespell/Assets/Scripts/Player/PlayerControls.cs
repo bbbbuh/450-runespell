@@ -220,8 +220,8 @@ public class PlayerControls : MonoBehaviour
         DetectSwipe();
 
         // Clamp position before applying movement
-        float clampedX = Mathf.Clamp(rb.position.x, -screenBounds.x + playerHalfWidth, screenBounds.x - playerHalfWidth);
-        float clampedY = Mathf.Clamp(rb.position.y, -screenBounds.y + playerHalfHeight, screenBounds.y - playerHalfHeight);
+        float clampedX = Mathf.Clamp(rb.position.x, -2.5f + playerHalfWidth, 2.5f - playerHalfWidth);
+        float clampedY = Mathf.Clamp(rb.position.y, -4.5f + playerHalfHeight, 4.5f - playerHalfHeight);
         Vector2 clampedPosition = new Vector2(clampedX, clampedY);
 
         // Comment out the below line to disable mobile joystick
