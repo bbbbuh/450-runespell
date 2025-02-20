@@ -105,7 +105,7 @@ MonoBehaviour:
   damage: 10
   width: 1
   height: 1
-  health: 100
+  health: 50
   animator: {fileID: 6759337165510267149}
   positionDifference: {x: 0, y: 0}
 --- !u!50 &8115990060465965844
