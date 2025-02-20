@@ -18,11 +18,13 @@ public class Player : Character
     [SerializeField] private string loseScene;
     [SerializeField] private TextMeshProUGUI healthText;
 
+    private float maxHealth;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        maxHealth = health;
     }
 
     // Update is called once per frame
@@ -46,7 +48,21 @@ public class Player : Character
         }
     }
 
+    //Used for the Heal Spell
+    public void Heal(float amount)
+    {
+        health += amount;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        healthText.text = "Health: " + health;
+    }
+
     //Get and set statements
     public float Width { get { return width; } }
     public float Height { get { return height; } }
+    public float Health { get { return health; } }
 }
