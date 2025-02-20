@@ -59,6 +59,6 @@ public class Player : Character
 
     //Get and set statements
     public float Width { get { return width; } }
-    public float Height { get { return height; } 
+    public float Height { get { return height; } }
     public float Health { get { return health; } set { health = value; healthText.text = "Health: " + health; } }
 }
