@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool nextScene;
     [SerializeField] GameObject player;
     [SerializeField] List<string> sceneNames;
+    [SerializeField] float playerHealth;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         if (player.GetComponent<Player>().Health<=0)
         {
             SceneManager.LoadScene("LoseScreen");
+            nextScene = false;
         }
     }
 
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
     {
         if (nextScene)
         {
+            nextScene = false;
+            playerHealth = player.GetComponent<Player>().Health;
             if (currentScene == "Room_Tutorial1")
             {
                 currentScene = "Room_Tutorial2";
@@ -67,6 +71,7 @@ public class GameManager : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene().name;
         player = GameObject.Find("Player");
+        player.GetComponent<Player>().Health = playerHealth;
         nextScene = false;
     }
 

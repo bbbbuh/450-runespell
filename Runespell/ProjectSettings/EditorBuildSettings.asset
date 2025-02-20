@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/Room_Tutorial2.unity
     guid: 522e7571a276ffe4faff3637afd062b6
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room_Tutorial3.unity
+    guid: 70482af8b57e0c24b8d202c2051e18d1
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room_Fight.unity
+    guid: 5943ffd6b493da5439ae471d98b5bf6f
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 6fa7898d3d831164696cf07e6013e100, type: 2}

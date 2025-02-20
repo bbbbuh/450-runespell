@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31d31c480685a44ca3b87515bc171b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentScene: 
+  nextScene: 0
+  player: {fileID: 0}
+  sceneNames: []
+  playerHealth: 100

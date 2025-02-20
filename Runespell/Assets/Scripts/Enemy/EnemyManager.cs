@@ -72,7 +72,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyList.Count == 0 && exit == null)
         {
-            exit = Instantiate(exitPrefab, new Vector2(0,5), Quaternion.identity);
+            exit = Instantiate(exitPrefab, new Vector2(0,4.5f), Quaternion.identity);
         }
     }
 
