@@ -35,6 +35,9 @@ public class ProjectileController : MonoBehaviour
 
     public GameObject ClosestTarget { get { return closestTarget; } set { closestTarget = value; } }
     public GameObject FarthestTarget { get { return farthestTarget; } set { farthestTarget = value; } }
+    public Spell TwoSecSlot {  get { return twoSecSlot; } set {  twoSecSlot = value; } }
+    public Spell FiveSecSlot { get { return fiveSecSlot; } set { fiveSecSlot = value; } }
+    public Spell TenSecSlot { get { return tenSecSlot; } set { tenSecSlot = value; } }
 
     // Start is called before the first frame update
     void Start()
@@ -44,10 +47,6 @@ public class ProjectileController : MonoBehaviour
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         player = GameObject.Find("Player").GetComponent<Player>();
 
-        //these need to be called when spells are added to the slots
-        instantiateManagers(twoSecSlot, 1.0f);
-        instantiateManagers(fiveSecSlot, 3.0f);
-        instantiateManagers(tenSecSlot, 8.0f);
     }
 
     // Update is called once per frame
@@ -105,7 +104,7 @@ public class ProjectileController : MonoBehaviour
         projectileCleanup();
     }
 
-    void instantiateManagers(Spell spell, float mult)
+    public void InstantiateManagers(Spell spell, float mult)
     {
         if (spell != null)
         {
@@ -114,7 +113,7 @@ public class ProjectileController : MonoBehaviour
             spell.Multiplier = mult;
             spell.SetProjectileMult(mult);
         }
-        
+
     }
 
     //Removes used projectiles
