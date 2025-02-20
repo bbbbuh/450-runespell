@@ -10,6 +10,10 @@ public class PlayerControls : MonoBehaviour
     [SerializeField]
     private float speed = 1;
 
+    // gets data from the virtual Joystick
+    [SerializeField]
+    private VirtualJoystick virtualJoystick;
+
     private Vector2 movement;
     private Rigidbody2D rb;
 
@@ -32,6 +36,12 @@ public class PlayerControls : MonoBehaviour
     private Vector2 screenBounds;
     private float playerHalfWidth;
     private float playerHalfHeight;
+     
+
+    private Vector2 touchStartPosition;
+    private Vector2 touchEndPosition;
+    //  This is the distance needed before the code recognizes a swipe as a dash
+    private float swipeThreshold = 50.0f;
 
     private void Awake()
     {
@@ -44,17 +54,18 @@ public class PlayerControls : MonoBehaviour
 
     private void OnMovement(InputValue value)
     {
-        movement = value.Get<Vector2>();
+        //movement = value.Get<Vector2>();
+        movement = virtualJoystick.JoystickInput;
     }
 
-    private IEnumerator OnDash()
+    private IEnumerator OnDash(Vector2 dashDirection)
     {
         canDash = false;
         isDashing = true;
         tr.emitting = true;
 
         // Calculate the dash direction and target position
-        Vector2 dashDirection = new Vector2(movement.x, movement.y).normalized;
+        //Vector2 dashDirection = new Vector2(movement.x, movement.y).normalized;
         Vector2 startPosition = rb.position;
         Vector2 targetPosition = startPosition + dashDirection * dashingSpeed;
 
@@ -128,6 +139,72 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    private void DetectSwipe()
+    {
+        // Use the mouse's right button and position to simulate touch if no touchscreen is available
+        bool isTouchScreenAvailable = Touchscreen.current != null;
+
+        // Simulate touch using the mouse
+        Vector2 touchPosition = isTouchScreenAvailable ? Touchscreen.current.primaryTouch.position.ReadValue() : Mouse.current.position.ReadValue();
+
+        if (!isTouchScreenAvailable)
+        {
+            if (Mouse.current.rightButton.isPressed)
+            {
+                // Detect start of swipe (mouse button down)
+                if (touchStartPosition == Vector2.zero)  
+                {
+                    touchStartPosition = touchPosition;
+                }
+            }
+
+            // Detect end of swipe (mouse button up)
+            if (Mouse.current.rightButton.wasReleasedThisFrame && touchStartPosition != Vector2.zero)
+            {
+                touchEndPosition = touchPosition;
+                Vector2 swipeDelta = touchEndPosition - touchStartPosition;
+
+                // Check if the swipe distance exceeds the threshold
+                if (swipeDelta.magnitude > swipeThreshold)
+                {
+                    Vector2 dashDirection = swipeDelta.normalized;
+                    if (canDash)
+                    {
+                        StartCoroutine(OnDash(dashDirection));
+                    }
+                }
+
+                touchStartPosition = Vector2.zero; // Reset after swipe
+            }
+        }
+        else
+        {
+            // Normal swipe handling if touchscreen is available
+            if (Touchscreen.current.primaryTouch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began)
+            {
+                touchStartPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+            }
+
+            if (Touchscreen.current.primaryTouch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Ended)
+            {
+                touchEndPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+
+                Vector2 swipeDelta = touchEndPosition - touchStartPosition;
+
+                if (swipeDelta.magnitude > swipeThreshold)
+                {
+                    Vector2 dashDirection = swipeDelta.normalized;
+                    if (canDash)
+                    {
+                        StartCoroutine(OnDash(dashDirection));
+                    }
+                }
+            }
+        }
+    }
+
+
+
     private void FixedUpdate()
     {
         if (isDashing)
@@ -135,15 +212,20 @@ public class PlayerControls : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            StartCoroutine(OnDash());
-        }
+        //if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        //{
+        //    StartCoroutine(OnDash());
+        //}
+
+        DetectSwipe();
 
         // Clamp position before applying movement
         float clampedX = Mathf.Clamp(rb.position.x, -2.5f + playerHalfWidth, 2.5f - playerHalfWidth);
         float clampedY = Mathf.Clamp(rb.position.y, -4.5f + playerHalfHeight, 4.5f - playerHalfHeight);
         Vector2 clampedPosition = new Vector2(clampedX, clampedY);
+
+        // Comment out the below line to disable mobile joystick
+        movement = virtualJoystick.JoystickInput;
 
         rb.MovePosition(clampedPosition + movement * speed * Time.fixedDeltaTime);
 
