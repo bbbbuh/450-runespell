@@ -40,6 +40,9 @@ public class PlayerControls : MonoBehaviour
 
     private Vector2 touchStartPosition;
     private Vector2 touchEndPosition;
+
+    [SerializeField]
+    private Vector2 positionDifference;
     //  This is the distance needed before the code recognizes a swipe as a dash
     private float swipeThreshold = 50.0f;
 
@@ -97,45 +100,39 @@ public class PlayerControls : MonoBehaviour
 
     private void Animations()
     {
-        if (movement.x > 0)
+        if (Mathf.Abs(positionDifference.x) > Mathf.Abs(positionDifference.y))
         {
-            animator.SetBool("WalkingLeft", false);
-            animator.SetBool("WalkingUp", false);
-            animator.SetBool("WalkingDown", false);
-            animator.SetBool("WalkingRight", true);
-        }
-        else if (movement.x < 0)
-        {
-            animator.SetBool("WalkingRight", false);
-            animator.SetBool("WalkingUp", false);
-            animator.SetBool("WalkingDown", false);
-            animator.SetBool("WalkingLeft", true);
-        }
-        else if (movement.y > 0)
-        {
-            animator.SetBool("WalkingLeft", false);
-            animator.SetBool("WalkingRight", false);
-            animator.SetBool("WalkingDown", false);
-            animator.SetBool("WalkingUp", true);
-        }
-        else if (movement.y < 0)
-        {
-            animator.SetBool("WalkingLeft", false);
-            animator.SetBool("WalkingRight", false);
-            animator.SetBool("WalkingUp", false);
-            animator.SetBool("WalkingDown", true);
+            if (positionDifference.x < 0)
+            {
+                animator.SetBool("WalkingLeft", false);
+                animator.SetBool("WalkingUp", false);
+                animator.SetBool("WalkingDown", false);
+                animator.SetBool("WalkingRight", true);
+            }
+            else if (positionDifference.x > 0)
+            {
+                animator.SetBool("WalkingRight", false);
+                animator.SetBool("WalkingUp", false);
+                animator.SetBool("WalkingDown", false);
+                animator.SetBool("WalkingLeft", true);
+            }
         }
         else
         {
-            animator.SetBool("WalkingLeft", false);
-            animator.SetBool("WalkingRight", false);
-            animator.SetBool("WalkingUp", false);
-            animator.SetBool("WalkingDown", false);
-        }
-        if (casting)
-        {
-            animator.SetTrigger("Casting");
-            casting = false;
+            if (positionDifference.y < 0)
+            {
+                animator.SetBool("WalkingLeft", false);
+                animator.SetBool("WalkingRight", false);
+                animator.SetBool("WalkingDown", false);
+                animator.SetBool("WalkingUp", true);
+            }
+            else if (positionDifference.y > 0)
+            {
+                animator.SetBool("WalkingLeft", false);
+                animator.SetBool("WalkingRight", false);
+                animator.SetBool("WalkingUp", false);
+                animator.SetBool("WalkingDown", true);
+            }
         }
     }
 
@@ -227,7 +224,9 @@ public class PlayerControls : MonoBehaviour
         // Comment out the below line to disable mobile joystick
         movement = virtualJoystick.JoystickInput;
 
-        rb.MovePosition(clampedPosition + movement * speed * Time.fixedDeltaTime);
+        Vector2 newPosition = clampedPosition + movement * speed * Time.fixedDeltaTime;
+        positionDifference = rb.position - newPosition;
+        rb.MovePosition(newPosition);
 
         Animations();
     }

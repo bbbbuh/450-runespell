@@ -7,9 +7,11 @@ public class SpellSlotManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> slots = new List<GameObject>(3);
 
+    [SerializeField]
     private ProjectileController projectileController;
 
     public List<GameObject> Slots {  get { return slots; } set { slots = value; } }
+    public ProjectileController ProjectileController { get {  return projectileController; } set {  projectileController = value; } }
 
     // Start is called before the first frame update
     void Start()

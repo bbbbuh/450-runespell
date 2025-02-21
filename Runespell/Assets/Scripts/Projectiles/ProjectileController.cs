@@ -38,6 +38,9 @@ public class ProjectileController : MonoBehaviour
     public Spell TwoSecSlot {  get { return twoSecSlot; } set {  twoSecSlot = value; } }
     public Spell FiveSecSlot { get { return fiveSecSlot; } set { fiveSecSlot = value; } }
     public Spell TenSecSlot { get { return tenSecSlot; } set { tenSecSlot = value; } }
+    public CollisionManager CollisionManager { get { return collisionManager; } set { collisionManager = value; } }
+    public EnemyManager EnemyManager { get { return enemyManager; } set { enemyManager = value; } }
+    public Player Player { get { return player; } set {  player = value; } }
 
     // Start is called before the first frame update
     void Start()
@@ -81,21 +84,16 @@ public class ProjectileController : MonoBehaviour
         {
             twoSecTimer = 0;
             twoSecSlot.Fire();
-            player.gameObject.GetComponent<PlayerControls>().Casting = true;
         }
         if (fiveSecTimer >= 5.0f && fiveSecSlot != null)
         {
             fiveSecTimer = 0;
             fiveSecSlot.Fire();
-            player.gameObject.GetComponent<PlayerControls>().Casting = true;
-
         }
         if (tenSecTimer >= 10.0f && tenSecSlot != null)
         {   
             tenSecTimer = 0;
             tenSecSlot.Fire();
-            player.gameObject.GetComponent<PlayerControls>().Casting = true;
-
         }
     }
 

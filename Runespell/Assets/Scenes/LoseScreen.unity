@@ -705,8 +705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c418c9a1cf3d9344a0c3a8c6d00807f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToSwitchTo: {fileID: 102900000, guid: 3fc8acdd13e6c734bafef6554d6fdbcd, type: 3}
-  sceneName: Runespell
+  sceneToSwitchTo: {fileID: 102900000, guid: 3c0daf041c37ac7489efd863d9b5548b, type: 3}
+  sceneName: Room_Tutorial1
   sceneButton: {fileID: 1941919024}
 --- !u!114 &1941919024
 MonoBehaviour:

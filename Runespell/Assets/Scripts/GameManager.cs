@@ -10,6 +10,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] List<string> sceneNames;
     [SerializeField] float playerHealth;
+    [SerializeField] GameObject spellSlotManager;
+    [SerializeField] bool spell1;
+    [SerializeField] bool spell2;
+    [SerializeField] bool spell3;
+    [SerializeField] GameObject projectileManager;
+    [SerializeField] Spell fireball;
+    [SerializeField] GameObject collisionManager;
+    [SerializeField] GameObject enemyManager;
 
     private void Awake()
     {
@@ -27,11 +35,14 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
         PlayerDeath();
         SceneTransition();
+        
     }
 
     void PlayerDeath()
@@ -40,6 +51,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScreen");
             nextScene = false;
+            Destroy(this.gameObject);
         }
     }
 
@@ -49,6 +61,23 @@ public class GameManager : MonoBehaviour
         {
             nextScene = false;
             playerHealth = player.GetComponent<Player>().Health;
+
+            if (projectileManager.GetComponent<ProjectileController>().TwoSecSlot != null)
+            {
+                spell1 = true;
+            }
+
+            if (projectileManager.GetComponent<ProjectileController>().FiveSecSlot != null)
+            {
+                spell2 = true;
+            }
+
+            if (projectileManager.GetComponent<ProjectileController>().TenSecSlot != null)
+            {
+                spell3 = true;
+            }
+            
+            Debug.Log(spell1);
             if (currentScene == "Room_Tutorial1")
             {
                 currentScene = "Room_Tutorial2";
@@ -71,7 +100,30 @@ public class GameManager : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene().name;
         player = GameObject.Find("Player");
+        projectileManager = GameObject.Find("ProjectileController");
+        spellSlotManager = GameObject.Find("SpellSlotManager");
+        collisionManager = GameObject.Find("CollisionManager");
+        enemyManager = GameObject.Find("EnemyManager");
+
+        projectileManager.GetComponent<ProjectileController>().Player = player.GetComponent<Player>();
+        projectileManager.GetComponent<ProjectileController>().CollisionManager = collisionManager.GetComponent<CollisionManager>();
+        projectileManager.GetComponent<ProjectileController>().EnemyManager = enemyManager.GetComponent<EnemyManager>();
+
         player.GetComponent<Player>().Health = playerHealth;
+        
+        spellSlotManager.GetComponent<SpellSlotManager>().ProjectileController = projectileManager.GetComponent<ProjectileController>();
+        if (spell1)
+        {
+            spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 0);
+        }
+        if (spell2)
+        {
+            spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 1);
+        }
+        if (spell3)
+        {
+            spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 2);
+        }
         nextScene = false;
     }
 
