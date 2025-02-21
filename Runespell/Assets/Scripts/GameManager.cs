@@ -10,12 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] List<string> sceneNames;
     [SerializeField] float playerHealth;
-    [SerializeField] GameObject spellSlotManager;
+    [SerializeField] SpellSlotManager spellSlotManager;
     [SerializeField] bool spell1;
     [SerializeField] bool spell2;
     [SerializeField] bool spell3;
     [SerializeField] GameObject projectileManager;
-    [SerializeField] Spell fireball;
+    [SerializeField] FireballSpell fireball;
     [SerializeField] GameObject collisionManager;
     [SerializeField] GameObject enemyManager;
 
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().name;
         player = GameObject.Find("Player");
         projectileManager = GameObject.Find("ProjectileController");
-        spellSlotManager = GameObject.Find("SpellSlotManager");
+        spellSlotManager = GameObject.Find("SpellSlotManager").GetComponent<SpellSlotManager>();
         collisionManager = GameObject.Find("CollisionManager");
         enemyManager = GameObject.Find("EnemyManager");
 
@@ -115,14 +115,17 @@ public class GameManager : MonoBehaviour
         if (spell1)
         {
             spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 0);
+            spellSlotManager.Slots[0].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
         }
         if (spell2)
         {
             spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 1);
+            spellSlotManager.Slots[1].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
         }
         if (spell3)
         {
             spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 2);
+            spellSlotManager.Slots[2].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
         }
         nextScene = false;
     }
