@@ -63,7 +63,7 @@ public class CollisionManager : MonoBehaviour
                     if (CheckCollision(projectiles[j].transform.position, 0.2f, 0.2f, enemyList[i].transform.position,
                         enemyList[i].GetComponent<Enemy>().Width, enemyList[i].GetComponent<Enemy>().Height))
                     {
-                        enemyList[i].GetComponent<Enemy>().Health -= projectiles[j].BaseDamage;
+                        enemyList[i].GetComponent<Enemy>().TakeDamage(projectiles[j].BaseDamage);
                         projectiles[j].Used=true;
 
                         /*if (enemyList[i].Health <= 0)
