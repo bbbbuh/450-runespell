@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: 2
-  songVolume: 0.25
-  soundEffectVolume: 2
+  songVolume: 0.15
+  soundEffectVolume: 10
   soundObject: {fileID: 7578408183489322658, guid: 7bfef47aa19224a45875c63397206e76, type: 3}
   songObject: {fileID: 7578408183489322658, guid: c6b844bf12c70a141ad668d468045726, type: 3}
   enemyHurt: {fileID: 8300000, guid: 67d118de78e327d4ca6cc9eca22ee6fd, type: 3}
@@ -54,7 +54,13 @@ MonoBehaviour:
   playerHurt: {fileID: 8300000, guid: 6fff6bc6854697b479395d50d53f51aa, type: 3}
   playerDeath: {fileID: 8300000, guid: de5fe6881833ab645827e5e9de032cc9, type: 3}
   playerDash: {fileID: 8300000, guid: 3eecc73d7ee4feb4ea8ee8847f568bdc, type: 3}
+  playerWalk: {fileID: 8300000, guid: aab3bed0700e8144981273b4f7670f30, type: 3}
+  door: {fileID: 8300000, guid: 349ecddfcf7179347ad83f0bbae7dca1, type: 3}
   spellSlotted: {fileID: 8300000, guid: 24519d8477f54554da5d3fdd5e9456fe, type: 3}
   fireball: {fileID: 8300000, guid: ac368037b859ee44eb4bde21a7089ef8, type: 3}
   heal: {fileID: 8300000, guid: 26e2d486d396654479534a1b85f03159, type: 3}
-  battle: {fileID: 8300000, guid: 6b86bb74208e5644abd1229f74de23cc, type: 3}
+  battle: {fileID: 8300000, guid: 4d5a6d7d5315cf4409d473ab3426a393, type: 3}
+  calm: {fileID: 8300000, guid: d0e145f351d0836469c483e8e980064f, type: 3}
+  battleMusic_Battle: {fileID: 7578408183489322658, guid: c6b844bf12c70a141ad668d468045726, type: 3}
+  battleMusic_Calm: {fileID: 7578408183489322658, guid: c6b844bf12c70a141ad668d468045726, type: 3}
+  walk: {fileID: 7578408183489322658, guid: c6b844bf12c70a141ad668d468045726, type: 3}

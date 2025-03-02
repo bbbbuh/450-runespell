@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
     {
         if (nextScene)
         {
+            SoundManager.instance.PlaySoundEffect(SoundEffectNames.Door);
+
             nextScene = false;
             playerHealth = player.GetComponent<Player>().Health;
 

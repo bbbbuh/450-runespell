@@ -227,6 +227,16 @@ public class PlayerControls : MonoBehaviour
         movement = virtualJoystick.JoystickInput;
 
         Vector2 newPosition = clampedPosition + movement * speed * Time.fixedDeltaTime;
+
+        if (newPosition != rb.position)
+        {
+            SoundManager.instance.PlayWalk();
+        }
+        else
+        {
+            SoundManager.instance.StopWalk();
+        }
+
         positionDifference = rb.position - newPosition;
         rb.MovePosition(newPosition);
 
