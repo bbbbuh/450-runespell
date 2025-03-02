@@ -6,7 +6,14 @@ using UnityEngine;
 // In Global Space
 public enum SoundEffectNames
 {
-    EnemyHurt
+    EnemyHurt,
+    EnemyDeath,
+    PlayerHurt,
+    PlayerDeath,
+    PlayerDash,
+    SpellSlotted,
+    Fireball,
+    Heal
 }
 
 public class SoundManager : MonoBehaviour
@@ -33,6 +40,27 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioClip enemyHurt;
 
+    [SerializeField]
+    private AudioClip enemyDeath;
+
+    [SerializeField]
+    private AudioClip playerHurt;
+
+    [SerializeField]
+    private AudioClip playerDeath;
+
+    [SerializeField]
+    private AudioClip playerDash;
+
+    [SerializeField]
+    private AudioClip spellSlotted;
+
+    [SerializeField]
+    private AudioClip fireball;
+
+    [SerializeField]
+    private AudioClip heal;
+
     // End of Sound Effects
 
     private void Awake()
@@ -48,15 +76,22 @@ public class SoundManager : MonoBehaviour
         switch (name)
         {
             case SoundEffectNames.EnemyHurt: return enemyHurt;
+            case SoundEffectNames.EnemyDeath: return enemyDeath;
+            case SoundEffectNames.PlayerHurt: return playerHurt;
+            case SoundEffectNames.PlayerDeath: return playerDeath;
+            case SoundEffectNames.PlayerDash: return playerDash;
+            case SoundEffectNames.SpellSlotted: return spellSlotted;
+            case SoundEffectNames.Fireball: return fireball;
+            case SoundEffectNames.Heal: return heal;
             default: return null;
         }
     }
 
 
-    public void PlaySoundEffect(Transform spawnTransform, SoundEffectNames name)
+    public void PlaySoundEffect(SoundEffectNames name)
     {
         // Spawns sound holding GameObject
-        AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundObject, new Vector3(0, 0, 0), Quaternion.identity);
 
         // Gets and gives the GameObject the AudioClip
         audioSource.clip = GetSoundEffect(name);

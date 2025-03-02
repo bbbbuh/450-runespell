@@ -64,7 +64,7 @@ public class CollisionManager : MonoBehaviour
                         enemyList[i].GetComponent<Enemy>().Width, enemyList[i].GetComponent<Enemy>().Height))
                     {
                         enemyList[i].GetComponent<Enemy>().Health -= projectiles[j].BaseDamage;
-                        SoundManager.instance.PlaySoundEffect(enemyList[i].transform, SoundEffectNames.EnemyHurt);
+                        SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyHurt);
                         projectiles[j].Used=true;
 
                         /*if (enemyList[i].Health <= 0)

@@ -59,6 +59,7 @@ public class EnemyManager : MonoBehaviour
                 {
                     if (enemyList[i].GetComponent<Enemy>().Health < 0)
                     {
+                        SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyDeath);
                         Destroy(enemyList[i]);
                         enemyList.RemoveAt(i);
                     }
