@@ -2867,7 +2867,7 @@ PrefabInstance:
     - target: {fileID: 3562185513951198839, guid: 79ab96e1ab63dbc43be454a89bd94f27, type: 3}
       propertyPath: battle
       value: 
-      objectReference: {fileID: 8300000, guid: 6b86bb74208e5644abd1229f74de23cc, type: 3}
+      objectReference: {fileID: 8300000, guid: 4d5a6d7d5315cf4409d473ab3426a393, type: 3}
     - target: {fileID: 3562185513951198839, guid: 79ab96e1ab63dbc43be454a89bd94f27, type: 3}
       propertyPath: soundObject
       value: 

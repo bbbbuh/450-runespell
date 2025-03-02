@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -18,7 +19,19 @@ public enum SoundEffectNames
 
 public enum SongNames
 {
-    Battle
+    Battle,
+    Calm
+}
+
+// What are the differences between these two?
+// GameState changes the current mood of the game
+// So for example, if all the enemies are dead,
+// the game will be in a calm state, and the
+// calm song will play
+public enum GameState
+{
+    Battle,
+    Calm
 }
 
 public class SoundManager : MonoBehaviour
@@ -78,8 +91,16 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioClip battle;
 
+    [SerializeField]
+    private AudioClip calm;
+
     // End of Songs
 
+    [SerializeField]
+    private AudioSource battleMusic_Battle;
+
+    [SerializeField]
+    private AudioSource battleMusic_Calm;
 
 
     private void Awake()
@@ -92,7 +113,9 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         // For now, since we just have one song, we'll use this
-        SoundManager.instance.PlaySong(SongNames.Battle);
+        // SoundManager.instance.PlaySong(SongNames.Battle);
+
+        SetUpBattleSongs();
     }
 
     private AudioClip GetSoundEffect(SoundEffectNames name)
@@ -116,6 +139,7 @@ public class SoundManager : MonoBehaviour
         switch (name)
         {
             case SongNames.Battle: return battle;
+            case SongNames.Calm: return calm;
             default: return null;
         }
     }
@@ -158,5 +182,69 @@ public class SoundManager : MonoBehaviour
 
         // Prevents the GameObject from being destroyed
         DontDestroyOnLoad(audioSource);
+    }
+
+    // Functions for setting up changing battle music
+
+    private void SetUpBattleSongs()
+    {
+        // Spawns sound holding GameObject
+        battleMusic_Battle = Instantiate(songObject, new Vector3(0, 0, 0), Quaternion.identity);
+        battleMusic_Calm = Instantiate(songObject, new Vector3(0, 0, 0), Quaternion.identity);
+
+        // Gets and gives the GameObject the AudioClip
+        battleMusic_Battle.clip = GetSong(SongNames.Battle);
+        battleMusic_Calm.clip = GetSong(SongNames.Calm);
+
+        // Adjusts volume to be 0 initially
+        battleMusic_Battle.volume = 0;
+        battleMusic_Calm.volume = 0;
+
+        // Plays the song in the background
+        battleMusic_Battle.Play();
+        battleMusic_Calm.Play();
+
+        // Prevents the GameObjects from being destroyed
+        DontDestroyOnLoad(battleMusic_Battle);
+        DontDestroyOnLoad(battleMusic_Calm);
+
+        SwitchSong(GameState.Calm);
+    }
+
+    private IEnumerator FadeSong(AudioSource audioSource, float targetVolume, float fadeDuration)
+    {
+        float startVolume = audioSource.volume;
+
+        float timeElapsed = 0f;
+
+        while (timeElapsed < fadeDuration)
+        {
+            audioSource.volume = Mathf.Lerp(startVolume, targetVolume, timeElapsed / fadeDuration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        audioSource.volume = targetVolume;
+    }
+
+    public void SwitchSong(GameState name)
+    {
+        UnityEngine.Debug.Log("GAMESTATE: " + name);
+
+        float fadeDuration = 3f;  // Fade duration in seconds
+
+        switch (name)
+        {
+            case GameState.Battle:
+                StartCoroutine(FadeSong(battleMusic_Calm, 0f, fadeDuration)); 
+                StartCoroutine(FadeSong(battleMusic_Battle, masterVolume * songVolume, fadeDuration));
+                break;
+            case GameState.Calm:
+                StartCoroutine(FadeSong(battleMusic_Battle, 0f, fadeDuration)); 
+                StartCoroutine(FadeSong(battleMusic_Calm, masterVolume * songVolume, fadeDuration));  
+                break;
+            default:
+                break;
+        }
     }
 }

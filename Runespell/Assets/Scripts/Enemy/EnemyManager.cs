@@ -34,6 +34,8 @@ public class EnemyManager : MonoBehaviour
     //Spawns an enemy
     void SpawnEnemy()
     {
+        SoundManager.instance.SwitchSong(GameState.Battle);
+
         foreach (Transform child in spawnLocations)
         {
             if (child.gameObject.tag == tag)
@@ -73,6 +75,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyList.Count == 0 && exit == null)
         {
+            SoundManager.instance.SwitchSong(GameState.Calm);
             exit = Instantiate(exitPrefab, new Vector2(0,4.5f), Quaternion.identity);
         }
     }
