@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    
-
     // Update is called once per frame
     void Update()
     {

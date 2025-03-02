@@ -27,8 +27,6 @@ public class SpellSlotManager : MonoBehaviour
 
     public void AddSpellToProjectileManager(Spell spell, int slot)
     {
-        SoundManager.instance.PlaySoundEffect(SoundEffectNames.SpellSlotted);
-
         if (slot == 0)
         {
             projectileController.TwoSecSlot = spell;

@@ -898,6 +898,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1360894247}
+    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
       propertyPath: fireball
       value: 
       objectReference: {fileID: 1831416182616823118, guid: 9aa07a268ab2f244693148f1a5c1d4f3, type: 3}
@@ -2860,6 +2864,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3562185513951198839, guid: 79ab96e1ab63dbc43be454a89bd94f27, type: 3}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b86bb74208e5644abd1229f74de23cc, type: 3}
     - target: {fileID: 3562185513951198839, guid: 79ab96e1ab63dbc43be454a89bd94f27, type: 3}
       propertyPath: soundObject
       value: 

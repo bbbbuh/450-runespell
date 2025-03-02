@@ -16,6 +16,11 @@ public enum SoundEffectNames
     Heal
 }
 
+public enum SongNames
+{
+    Battle
+}
+
 public class SoundManager : MonoBehaviour
 {
     // Adapted Sasquatch B Studio's How To Add Sound Effects The Right Way guide
@@ -34,6 +39,9 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]
     private AudioSource soundObject;
+
+    [SerializeField]
+    private AudioSource songObject;
 
     // Sound Effects
 
@@ -63,12 +71,28 @@ public class SoundManager : MonoBehaviour
 
     // End of Sound Effects
 
+
+
+    // Songs
+
+    [SerializeField]
+    private AudioClip battle;
+
+    // End of Songs
+
+
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+
+        DontDestroyOnLoad(this.gameObject);
+
+        // For now, since we just have one song, we'll use this
+        SoundManager.instance.PlaySong(SongNames.Battle);
     }
 
     private AudioClip GetSoundEffect(SoundEffectNames name)
@@ -83,6 +107,15 @@ public class SoundManager : MonoBehaviour
             case SoundEffectNames.SpellSlotted: return spellSlotted;
             case SoundEffectNames.Fireball: return fireball;
             case SoundEffectNames.Heal: return heal;
+            default: return null;
+        }
+    }
+
+    private AudioClip GetSong(SongNames name)
+    {
+        switch (name)
+        {
+            case SongNames.Battle: return battle;
             default: return null;
         }
     }
@@ -107,5 +140,23 @@ public class SoundManager : MonoBehaviour
 
         // Deletes GameObject after the clip is done
         Destroy(audioSource.gameObject, clipLength);
+    }
+
+    public void PlaySong(SongNames name)
+    {
+        // Spawns sound holding GameObject
+        AudioSource audioSource = Instantiate(songObject, new Vector3(0, 0, 0), Quaternion.identity);
+
+        // Gets and gives the GameObject the AudioClip
+        audioSource.clip = GetSong(name);
+
+        // Adjusts volume
+        audioSource.volume = masterVolume * songVolume;
+
+        // Plays sound
+        audioSource.Play();
+
+        // Prevents the GameObject from being destroyed
+        DontDestroyOnLoad(audioSource);
     }
 }
