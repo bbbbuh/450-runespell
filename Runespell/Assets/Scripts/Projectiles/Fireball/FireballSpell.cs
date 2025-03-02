@@ -37,6 +37,7 @@ public class FireballSpell : Spell
             proj.Direction = direction;
             projectileController.Projectiles.Add(proj);
             proj.GetComponent<Projectile>().TimeCast = Time.time;
+            SoundManager.instance.PlaySoundEffect(SoundEffectNames.Fireball);
         }
         
     }

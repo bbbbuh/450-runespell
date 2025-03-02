@@ -2721,6 +2721,7 @@ MonoBehaviour:
   - {fileID: 1886014898}
   - {fileID: 271643782}
   - {fileID: 60085277}
+  projectileController: {fileID: 0}
 --- !u!4 &1928789773
 Transform:
   m_ObjectHideFlags: 0

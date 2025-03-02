@@ -38,6 +38,16 @@ public class Player : Character
     {
         if (Time.time-lastHit>damageCooldown)
         {
+            if (health - amount <= 0.0f)
+            {
+                SoundManager.instance.PlaySoundEffect(SoundEffectNames.PlayerDeath);
+            }
+            else
+            {
+                SoundManager.instance.PlaySoundEffect(SoundEffectNames.PlayerHurt);
+            }
+
+
             lastHit = Time.time;
             health -= amount;
             healthText.text = "Health: " + health;

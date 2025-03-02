@@ -67,6 +67,8 @@ public class PlayerControls : MonoBehaviour
         isDashing = true;
         tr.emitting = true;
 
+        SoundManager.instance.PlaySoundEffect(SoundEffectNames.PlayerDash);
+
         // Calculate the dash direction and target position
         //Vector2 dashDirection = new Vector2(movement.x, movement.y).normalized;
         Vector2 startPosition = rb.position;

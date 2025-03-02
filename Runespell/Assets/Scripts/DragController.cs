@@ -102,6 +102,7 @@ public class DragController : MonoBehaviour
         {
             if (CheckCollision(lastDragged.transform.position, 0.32f, 0.32f, slotManager.Slots[i].transform.position, 0.38f, 0.38f))
             {
+                SoundManager.instance.PlaySoundEffect(SoundEffectNames.SpellSlotted);
                 slotManager.Slots[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = lastDragged.GetComponent<SpriteRenderer>().sprite;
                 slotManager.AddSpellToProjectileManager(lastDragged,i);
                 Drop();
