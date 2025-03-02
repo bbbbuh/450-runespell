@@ -12,6 +12,8 @@ public enum SoundEffectNames
     PlayerHurt,
     PlayerDeath,
     PlayerDash,
+    PlayerWalk,
+    Door,
     SpellSlotted,
     Fireball,
     Heal
@@ -74,6 +76,12 @@ public class SoundManager : MonoBehaviour
     private AudioClip playerDash;
 
     [SerializeField]
+    private AudioClip playerWalk;
+
+    [SerializeField]
+    private AudioClip door;
+
+    [SerializeField]
     private AudioClip spellSlotted;
 
     [SerializeField]
@@ -96,11 +104,16 @@ public class SoundManager : MonoBehaviour
 
     // End of Songs
 
+
+
     [SerializeField]
     private AudioSource battleMusic_Battle;
 
     [SerializeField]
     private AudioSource battleMusic_Calm;
+
+    [SerializeField]
+    private AudioSource walk;
 
 
     private void Awake()
@@ -116,6 +129,7 @@ public class SoundManager : MonoBehaviour
         // SoundManager.instance.PlaySong(SongNames.Battle);
 
         SetUpBattleSongs();
+        SetUpWalkAudio();
     }
 
     private AudioClip GetSoundEffect(SoundEffectNames name)
@@ -127,6 +141,8 @@ public class SoundManager : MonoBehaviour
             case SoundEffectNames.PlayerHurt: return playerHurt;
             case SoundEffectNames.PlayerDeath: return playerDeath;
             case SoundEffectNames.PlayerDash: return playerDash;
+            case SoundEffectNames.PlayerWalk: return playerWalk;
+            case SoundEffectNames.Door: return door;
             case SoundEffectNames.SpellSlotted: return spellSlotted;
             case SoundEffectNames.Fireball: return fireball;
             case SoundEffectNames.Heal: return heal;
@@ -247,4 +263,31 @@ public class SoundManager : MonoBehaviour
                 break;
         }
     }
+
+    // Walking Audio Effects
+
+    private void SetUpWalkAudio()
+    {
+        // Spawns sound holding GameObject
+        walk = Instantiate(songObject, new Vector3(0, 0, 0), Quaternion.identity);
+
+        // Gets and gives the GameObject the AudioClip
+        walk.clip = GetSoundEffect(SoundEffectNames.PlayerWalk);
+
+        // Adjusts volume 
+        walk.volume = soundEffectVolume * masterVolume;
+
+        // Prevents the GameObjects from being destroyed
+        DontDestroyOnLoad(walk);
+    }
+
+    public void PlayWalk() 
+    {
+        if (!walk.isPlaying)
+        {
+            walk.Play();
+        }
+    }
+
+    public void StopWalk() {walk.Stop();}
 }
