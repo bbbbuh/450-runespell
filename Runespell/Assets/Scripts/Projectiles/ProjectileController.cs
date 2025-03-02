@@ -132,4 +132,13 @@ public class ProjectileController : MonoBehaviour
             }
         }
     }
+
+    //public List<SpellNames> GetSpellNameList()
+    //{
+    //    List<SpellNames> temp = new List<SpellNames>();
+    //    temp.Add(TwoSecSlot.GetSpellName());
+    //    temp.Add(FiveSecSlot.GetSpellName());
+    //    temp.Add(TenSecSlot.GetSpellName());
+    //    return temp;
+    //}
 }

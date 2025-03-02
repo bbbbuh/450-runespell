@@ -2224,6 +2224,7 @@ MonoBehaviour:
   - {fileID: 1203666602}
   - {fileID: 1228116096}
   projectileController: {fileID: 0}
+  spellNameList: 000000000000000000000000
 --- !u!4 &1591881065
 Transform:
   m_ObjectHideFlags: 0
