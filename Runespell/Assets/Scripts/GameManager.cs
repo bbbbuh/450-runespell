@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool spell3;
     [SerializeField] GameObject projectileManager;
     [SerializeField] FireballSpell fireball;
+    [SerializeField] MagicOrbSpell magicOrb;
     [SerializeField] GameObject collisionManager;
     [SerializeField] GameObject enemyManager;
 
@@ -114,8 +115,12 @@ public class GameManager : MonoBehaviour
         spellSlotManager.GetComponent<SpellSlotManager>().ProjectileController = projectileManager.GetComponent<ProjectileController>();
         if (spell1)
         {
-            spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 0);
-            spellSlotManager.Slots[0].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
+            //spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 0);
+            //spellSlotManager.Slots[0].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
+
+            // Magic Orb Test Code
+            spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(magicOrb, 0);
+            spellSlotManager.Slots[0].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = magicOrb.GetComponent<SpriteRenderer>().sprite;
         }
         if (spell2)
         {

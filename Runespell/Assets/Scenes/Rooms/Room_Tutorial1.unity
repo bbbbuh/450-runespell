@@ -906,6 +906,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1831416182616823118, guid: 9aa07a268ab2f244693148f1a5c1d4f3, type: 3}
     - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
+      propertyPath: magicOrb
+      value: 
+      objectReference: {fileID: -6432043867258841185, guid: 92c827d05e94f864ba87905632d0e8dd, type: 3}
+    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
       propertyPath: nextScene
       value: 0
       objectReference: {fileID: 0}
