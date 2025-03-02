@@ -19,7 +19,7 @@ public class MagicOrbProjectile : Projectile
     void Update()
     {
         //move projectile to target position
-        UnityEngine.Debug.Log("DIRECTION: " + direction + ", SPEED: " + speed + ", TIME: " + Time.deltaTime);
+        // UnityEngine.Debug.Log("DIRECTION: " + direction + ", SPEED: " + speed + ", TIME: " + Time.deltaTime);
         Vector2 newPosition = transform.position + (direction * speed * Time.deltaTime);
         transform.position = newPosition;
     }

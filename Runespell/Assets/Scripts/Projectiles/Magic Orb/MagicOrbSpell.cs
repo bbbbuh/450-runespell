@@ -46,4 +46,9 @@ public class MagicOrbSpell : Spell
     {
         magicOrbProjectile.Multiplier = mult;
     }
+
+    public override SpellNames GetSpellName()
+    {
+        return SpellNames.MagicOrb;
+    }
 }

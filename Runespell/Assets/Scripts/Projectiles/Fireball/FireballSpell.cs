@@ -47,4 +47,9 @@ public class FireballSpell : Spell
     {
         fireballProjectile.Multiplier = mult;
     }
+
+    public override SpellNames GetSpellName()
+    {
+        return fireballProjectile.SpellName;
+    }
 }
