@@ -85,7 +85,7 @@ public class CollisionManager : MonoBehaviour
 
                                 for (int m = impactedEnemyList.Count - 1; m >= 0; m--)
                                 {
-                                    impactedEnemyList[m].GetComponent<Enemy>().Health -= projectiles[j].BaseDamage;
+                                    impactedEnemyList[m].GetComponent<Enemy>()..TakeDamage(projectiles[j].BaseDamage);
                                     SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyHurt);
                                 }
 
@@ -94,6 +94,7 @@ public class CollisionManager : MonoBehaviour
                                 break;
                             default: break;
                         }
+
 
 
                         /*if (enemyList[i].Health <= 0)
