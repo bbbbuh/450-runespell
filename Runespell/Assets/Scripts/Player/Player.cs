@@ -17,6 +17,7 @@ public class Player : Character
     [SerializeField] float damageCooldown = 0.5f;
     [SerializeField] private string loseScene;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private float damageEffectTime;
 
     private float maxHealth;
 
@@ -30,7 +31,10 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.time - damageEffectTime > 0.2f)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
     //Deals damage to the player
@@ -41,6 +45,8 @@ public class Player : Character
             lastHit = Time.time;
             health -= amount;
             healthText.text = "Health: " + health;
+            damageEffectTime = Time.time;
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
 
