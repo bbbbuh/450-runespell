@@ -67,7 +67,7 @@ public class CollisionManager : MonoBehaviour
                         {
                             case SpellNames.Fireball:
                                 // UnityEngine.Debug.Log("MULT: " + projectiles[j].Multiplier);
-                                enemyList[i].GetComponent<Enemy>().Health -= projectiles[j].BaseDamage; // * projectiles[j].Multiplier;
+                                enemyList[i].GetComponent<Enemy>().TakeDamage(projectiles[j].BaseDamage); // * projectiles[j].Multiplier;
                                 SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyHurt);
                                 projectiles[j].Used = true;
                                 break;
@@ -85,7 +85,7 @@ public class CollisionManager : MonoBehaviour
 
                                 for (int m = impactedEnemyList.Count - 1; m >= 0; m--)
                                 {
-                                    impactedEnemyList[m].GetComponent<Enemy>()..TakeDamage(projectiles[j].BaseDamage);
+                                    impactedEnemyList[m].GetComponent<Enemy>().TakeDamage(projectiles[j].BaseDamage);
                                     SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyHurt);
                                 }
 
