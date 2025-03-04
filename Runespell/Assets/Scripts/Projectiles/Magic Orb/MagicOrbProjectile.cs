@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class FireballProjectile : Projectile
+public class MagicOrbProjectile : Projectile
 {
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         //get direction of the spell from its rotation
-        baseDamage = 25.0f;
-        spellName = SpellNames.Fireball;
+        baseDamage = 10.0f;
+        spellName = SpellNames.MagicOrb;
     }
 
     // Update is called once per frame
     void Update()
     {
         //move projectile to target position
+        // UnityEngine.Debug.Log("DIRECTION: " + direction + ", SPEED: " + speed + ", TIME: " + Time.deltaTime);
         Vector2 newPosition = transform.position + (direction * speed * Time.deltaTime);
         transform.position = newPosition;
     }
 
-    
+
 }
