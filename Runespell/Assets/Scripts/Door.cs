@@ -22,8 +22,11 @@ public class Door : MonoBehaviour
         
     }
 
-    public void openDoor()
+    public void OpenDoor()
     {
-
+        animator.SetBool("OpenDoor", true);
+        open = true;
     }
+
+    public bool Open { get { return open; } set {  open = value; } }
 }

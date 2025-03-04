@@ -86,8 +86,11 @@ public class CollisionManager : MonoBehaviour
         {
             if (CheckCollision(enemyManager.Exit.transform.position, 1,1, player.transform.position, player.GetComponent<Player>().Width, player.GetComponent<Player>().Height))
             {
-                gameManager.GetComponent<GameManager>().NextScene = true;
-                Debug.Log("Next Scene");
+                if (enemyManager.Exit.GetComponent<Door>().Open)
+                {
+                    gameManager.GetComponent<GameManager>().NextScene = true;
+                    Debug.Log("Next Scene");
+                }
             }
         }
     }

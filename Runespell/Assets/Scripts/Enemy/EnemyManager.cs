@@ -18,12 +18,13 @@ public class EnemyManager : MonoBehaviour
     {
         //InvokeRepeating("SpawnEnemy", 2.0f, 2.0f);
         SpawnEnemy();
+        SpawnExit();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SpawnExit();
+        
     }
 
     private void LateUpdate()
@@ -68,16 +69,16 @@ public class EnemyManager : MonoBehaviour
                 }
             }
         }
-        
+        if (enemyList.Count == 0)
+        {
+            SoundManager.instance.SwitchSong(GameState.Calm);
+            exit.GetComponent<Door>().OpenDoor();
+        }
     }
 
     void SpawnExit()
     {
-        if (enemyList.Count == 0 && exit == null)
-        {
-            SoundManager.instance.SwitchSong(GameState.Calm);
-            exit = Instantiate(exitPrefab, new Vector2(0,4.5f), Quaternion.identity);
-        }
+        exit = Instantiate(exitPrefab, new Vector2(0, 4.5f), Quaternion.identity);
     }
 
     //Get and set statements
