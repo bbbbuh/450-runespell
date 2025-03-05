@@ -108,6 +108,8 @@ MonoBehaviour:
   health: 50
   animator: {fileID: 6759337165510267149}
   positionDifference: {x: 0, y: 0}
+  damageEffectTime: 0
+  corpsePrefab: {fileID: 2704950352056359078, guid: 3365c960092e0064c9e09fd4149178fa, type: 3}
 --- !u!50 &8115990060465965844
 Rigidbody2D:
   serializedVersion: 4

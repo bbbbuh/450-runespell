@@ -31,6 +31,9 @@ public class Enemy : Character
     [SerializeField]
     private float damageEffectTime;
 
+    [SerializeField]
+    private GameObject corpsePrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +100,13 @@ public class Enemy : Character
         health -= amount;
         damageEffectTime = Time.time;
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    public void DestroySequence()
+    {
+        GameObject corpse = Instantiate(corpsePrefab, this.gameObject.transform.position, Quaternion.identity);
+        corpse.GetComponent<DyingEnemy>().SpawnTime = Time.time;
+        Destroy(this.gameObject);
     }
 
     //Get and set statements
