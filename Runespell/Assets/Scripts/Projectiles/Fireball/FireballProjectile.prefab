@@ -50,6 +50,7 @@ MonoBehaviour:
   speed: 10
   used: 0
   timeCast: 0
+  explosionPrefab: {fileID: 3725154558064843535, guid: 669001bf8397e3740b67c45e55420640, type: 3}
 --- !u!212 &7507173005097052353
 SpriteRenderer:
   m_ObjectHideFlags: 0

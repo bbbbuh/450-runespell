@@ -5,7 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class FireballProjectile : Projectile
 {
-    
+
+    [SerializeField] GameObject explosionPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +24,11 @@ public class FireballProjectile : Projectile
         transform.position = newPosition;
     }
 
-    
+    private void OnDestroy()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, this.gameObject.transform.position, Quaternion.identity);
+        explosion.GetComponent<FireballExplosion>().SpawnTime = Time.time;
+    }
+
+
 }

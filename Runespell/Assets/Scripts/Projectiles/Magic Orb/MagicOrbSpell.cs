@@ -9,6 +9,8 @@ public class MagicOrbSpell : Spell
     [SerializeField]
     private MagicOrbProjectile magicOrbProjectile;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {

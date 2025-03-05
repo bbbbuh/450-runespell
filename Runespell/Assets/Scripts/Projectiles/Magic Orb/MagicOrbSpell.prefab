@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplier: 1
   magicOrbProjectile: {fileID: 8165806958545116302, guid: dff15952f8a84f546abf48c6c5515e5e, type: 3}
+  explosionPrefab: {fileID: 5290447589439242834, guid: 0cbc93242ca2b90468227b050faff7ce, type: 3}
 --- !u!212 &-5488444788668017310
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ public class HealSpell : Spell
 {
     private float baseHealAmount = 1.0f;
 
+    [SerializeField] GameObject explosionPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,9 @@ public class HealSpell : Spell
         if (this.Player.Health < this.Player.MaxHealth)
         {
             SoundManager.instance.PlaySoundEffect(SoundEffectNames.Heal);
+
+            GameObject explosion = Instantiate(explosionPrefab, Player.transform.position, Quaternion.identity);
+            explosion.GetComponent<HealExplosion>().SpawnTime = Time.time;
         }
 
         this.Player.Heal(baseHealAmount * this.Multiplier);

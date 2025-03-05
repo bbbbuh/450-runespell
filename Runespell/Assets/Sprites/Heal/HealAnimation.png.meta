@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d403470d22e6b144992af75f77b5d736
+guid: c5e48bc0def44bf41bc2d8a016450fbd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,19 +94,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OrbAndExlplosion_0
+      name: HealAnimation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17c41c950bfad8e469b80666d6b740ed
-      internalID: -2144618018
+      spriteID: 7c5acc69869ca87449be6b450448e728
+      internalID: -847548761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OrbAndExlplosion_1
+      name: HealAnimation_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f8651c12b397214b87a3806527b58fa
-      internalID: 1402607152
+      spriteID: a708633626ef508408aa23ae6110b0a1
+      internalID: 743773510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OrbAndExlplosion_2
+      name: HealAnimation_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1511eeb8544998d4ebd706f115b04947
-      internalID: -106964257
+      spriteID: 63cc276c396e7b144af42e570a036723
+      internalID: 1184426665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OrbAndExlplosion_3
+      name: HealAnimation_3
       rect:
         serializedVersion: 2
         x: 0
@@ -200,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12cbd3ba7e994694288962adbe647122
-      internalID: -1358685653
+      spriteID: 0c97e9c079d27ed46ba14abc5f0d587a
+      internalID: 1091464140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OrbAndExlplosion_4
+      name: HealAnimation_4
       rect:
         serializedVersion: 2
         x: 32
@@ -221,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2824d7b6b09d0646a0bb2f250249927
-      internalID: 1346272011
+      spriteID: 66aeca5cb5c3a9840a9920cfc0ca2835
+      internalID: -780038127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OrbAndExlplosion_5
+      name: HealAnimation_5
       rect:
         serializedVersion: 2
         x: 64
@@ -242,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cd2da8fe84c6a14d9998924e98fd3c2
-      internalID: 1530332699
+      spriteID: 685a6684595305a4aa9da60832922999
+      internalID: 58256018
       vertices: []
       indices: 
       edges: []
@@ -259,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      OrbAndExlplosion_0: -2144618018
-      OrbAndExlplosion_1: 1402607152
-      OrbAndExlplosion_2: -106964257
-      OrbAndExlplosion_3: -1358685653
-      OrbAndExlplosion_4: 1346272011
-      OrbAndExlplosion_5: 1530332699
+      HealAnimation_0: -847548761
+      HealAnimation_1: 743773510
+      HealAnimation_2: 1184426665
+      HealAnimation_3: 1091464140
+      HealAnimation_4: -780038127
+      HealAnimation_5: 58256018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

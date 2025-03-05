@@ -63,7 +63,7 @@ public class EnemyManager : MonoBehaviour
                     if (enemyList[i].GetComponent<Enemy>().Health < 0)
                     {
                         SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyDeath);
-                        enemyList[i].GetComponent<Enemy>().DestroySequence();
+                        Destroy(enemyList[i]);
                         enemyList.RemoveAt(i);
                     }
                 }

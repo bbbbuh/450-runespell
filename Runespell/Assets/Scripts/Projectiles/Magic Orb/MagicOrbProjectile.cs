@@ -5,7 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class MagicOrbProjectile : Projectile
 {
-
+    [SerializeField]
+    private GameObject explosionPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,10 @@ public class MagicOrbProjectile : Projectile
         Vector2 newPosition = transform.position + (direction * speed * Time.deltaTime);
         transform.position = newPosition;
     }
-
+    private void OnDestroy()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, this.gameObject.transform.position, Quaternion.identity);
+        explosion.GetComponent<MagicOrbExplosion>().SpawnTime = Time.time;
+    }
 
 }
