@@ -77,4 +77,5 @@ public class Player : Character
     public float Width { get { return width; } }
     public float Height { get { return height; } }
     public float Health { get { return health; } set { health = value; healthText.text = "Health: " + health; } }
+    public float MaxHealth { get { return maxHealth; } }
 }

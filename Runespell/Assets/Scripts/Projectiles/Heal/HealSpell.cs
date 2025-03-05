@@ -22,9 +22,14 @@ public class HealSpell : Spell
     }
 
     public override void Fire()
-    {
+    {        
+        if (this.Player.Health < this.Player.MaxHealth)
+        {
+            SoundManager.instance.PlaySoundEffect(SoundEffectNames.Heal);
+        }
+
         this.Player.Heal(baseHealAmount * this.Multiplier);
-        SoundManager.instance.PlaySoundEffect(SoundEffectNames.Heal);
+
         //UnityEngine.Debug.Log("Player healed for: " + (baseHealAmount * this.Multiplier) + " amount");
         //UnityEngine.Debug.Log("Current player health is: " + this.Player.Health);
     }
@@ -32,5 +37,10 @@ public class HealSpell : Spell
     public override void SetProjectileMult(float mult)
     {
 
+    }
+
+    public override SpellNames GetSpellName()
+    {
+        return SpellNames.Heal;
     }
 }
