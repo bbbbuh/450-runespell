@@ -13,12 +13,16 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameObject exitPrefab;
     [SerializeField] private GameObject exit;
 
+    // Used to switch songs only once
+    private bool noEnemies = false;
+
     // Start is called before the first frame update
     void Start()
     {
         //InvokeRepeating("SpawnEnemy", 2.0f, 2.0f);
         SpawnEnemy();
         SpawnExit();
+        SoundManager.instance.SwitchSong(GameState.Battle);
     }
 
     // Update is called once per frame
@@ -35,8 +39,6 @@ public class EnemyManager : MonoBehaviour
     //Spawns an enemy
     void SpawnEnemy()
     {
-        SoundManager.instance.SwitchSong(GameState.Battle);
-
         foreach (Transform child in spawnLocations)
         {
             if (child.gameObject.tag == tag)
@@ -46,6 +48,7 @@ public class EnemyManager : MonoBehaviour
                     GameObject enemy = Instantiate(enemyPrefab, child.gameObject.transform.position, Quaternion.identity);
                     enemy.GetComponent<Enemy>().Target = player;
                     enemyList.Add(enemy);
+                    noEnemies = false;
                 }
             }
         }
@@ -71,8 +74,12 @@ public class EnemyManager : MonoBehaviour
         }
         if (enemyList.Count == 0)
         {
-            SoundManager.instance.SwitchSong(GameState.Calm);
-            exit.GetComponent<Door>().OpenDoor();
+            if (noEnemies == false)
+            {
+                SoundManager.instance.SwitchSong(GameState.Calm);
+                exit.GetComponent<Door>().OpenDoor();
+                noEnemies = true;
+            }
         }
     }
 

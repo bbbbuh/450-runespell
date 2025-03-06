@@ -39,7 +39,7 @@ public class MagicOrbSpell : Spell
             proj.Direction = direction;
             projectileController.Projectiles.Add(proj);
             proj.GetComponent<Projectile>().TimeCast = Time.time;
-            //SoundManager.instance.PlaySoundEffect(SoundEffectNames.MagicOrbCast);
+            SoundManager.instance.PlaySoundEffect(SoundEffectNames.MagicOrb);
         }
 
     }

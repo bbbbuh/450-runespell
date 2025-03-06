@@ -16,7 +16,9 @@ public enum SoundEffectNames
     Door,
     SpellSlotted,
     Fireball,
-    Heal
+    Heal,
+    MagicOrb,
+    MagicOrbExplosion
 }
 
 public enum SongNames
@@ -90,6 +92,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioClip heal;
 
+    [SerializeField]
+    private AudioClip magicOrb;
+
+    [SerializeField]
+    private AudioClip magicOrbExplosion;
+
     // End of Sound Effects
 
 
@@ -115,6 +123,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource walk;
 
+
+    private GameState currentGameState = GameState.Calm;
+
+    public GameState CurrentGameState { get  { return currentGameState; } }
 
     private void Awake()
     {
@@ -146,6 +158,8 @@ public class SoundManager : MonoBehaviour
             case SoundEffectNames.SpellSlotted: return spellSlotted;
             case SoundEffectNames.Fireball: return fireball;
             case SoundEffectNames.Heal: return heal;
+            case SoundEffectNames.MagicOrb: return magicOrb;
+            case SoundEffectNames.MagicOrbExplosion: return magicOrbExplosion;
             default: return null;
         }
     }
@@ -245,7 +259,8 @@ public class SoundManager : MonoBehaviour
 
     public void SwitchSong(GameState name)
     {
-        UnityEngine.Debug.Log("GAMESTATE: " + name);
+        currentGameState = name;        
+        UnityEngine.Debug.Log("GAMESTATE: " + currentGameState);
 
         float fadeDuration = 3f;  // Fade duration in seconds
 

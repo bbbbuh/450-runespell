@@ -72,6 +72,7 @@ public class CollisionManager : MonoBehaviour
                                 projectiles[j].Used = true;
                                 break;
                             case SpellNames.MagicOrb:
+                                SoundManager.instance.PlaySoundEffect(SoundEffectNames.MagicOrbExplosion);
                                 List<GameObject> impactedEnemyList = new List<GameObject>();
                                 float explosionRadius = 1.0f; // * projectiles[j].Multiplier
 
