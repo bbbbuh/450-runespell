@@ -42,6 +42,10 @@ public class ProjectileController : MonoBehaviour
     public EnemyManager EnemyManager { get { return enemyManager; } set { enemyManager = value; } }
     public Player Player { get { return player; } set {  player = value; } }
 
+    public float TwoSecTimer { get { return twoSecTimer; } }
+    public float FiveSecTimer { get { return fiveSecTimer; } }
+    public float TenSecTimer { get { return tenSecTimer; } }
+
     // Start is called before the first frame update
     void Start()
     {

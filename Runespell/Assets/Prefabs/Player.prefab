@@ -109,6 +109,7 @@ MonoBehaviour:
   damageCooldown: 0.5
   loseScene: loseScreen
   healthText: {fileID: 0}
+  damageEffectTime: 0
 --- !u!50 &1632219812899075192
 Rigidbody2D:
   serializedVersion: 4
@@ -179,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.5
+  virtualJoystick: {fileID: 0}
   canDash: 1
   isDashing: 0
   dashingSpeed: 5
@@ -187,6 +189,7 @@ MonoBehaviour:
   tr: {fileID: 7012229605756683704}
   animator: {fileID: 0}
   casting: 0
+  positionDifference: {x: 0, y: 0}
 --- !u!96 &7012229605756683704
 TrailRenderer:
   serializedVersion: 3

@@ -124,6 +124,10 @@ public class SoundManager : MonoBehaviour
     private AudioSource walk;
 
 
+    private GameState currentGameState = GameState.Calm;
+
+    public GameState CurrentGameState { get  { return currentGameState; } }
+
     private void Awake()
     {
         if (instance == null)
@@ -255,7 +259,8 @@ public class SoundManager : MonoBehaviour
 
     public void SwitchSong(GameState name)
     {
-        UnityEngine.Debug.Log("GAMESTATE: " + name);
+        currentGameState = name;        
+        UnityEngine.Debug.Log("GAMESTATE: " + currentGameState);
 
         float fadeDuration = 3f;  // Fade duration in seconds
 

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool nextScene;
     [SerializeField] GameObject player;
     [SerializeField] List<string> sceneNames;
-    [SerializeField] float playerHealth;
+    [SerializeField] public float playerHealth;
     [SerializeField] SpellSlotManager spellSlotManager;
     [SerializeField] bool spell1;
     [SerializeField] bool spell2;
@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public List<SpellNames> savedSpellNames = new List<SpellNames>(3);
+
+    public float PlayerHealth { get { return playerHealth; } }
 
     private void Awake()
     {
@@ -43,13 +45,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerHealth = player.GetComponent<Player>().Health;
+
         PlayerDeath();
         SceneTransition();
     }
 
     void PlayerDeath()
     {
-        if (player.GetComponent<Player>().Health<=0)
+        if (playerHealth <= 0)
         {
             SceneManager.LoadScene("LoseScreen");
             nextScene = false;
@@ -64,7 +68,7 @@ public class GameManager : MonoBehaviour
             SoundManager.instance.PlaySoundEffect(SoundEffectNames.Door);
 
             nextScene = false;
-            playerHealth = player.GetComponent<Player>().Health;
+            //playerHealth = player.GetComponent<Player>().Health;
 
             //savedSpellNames = projectileManager.GetComponent<ProjectileController>().GetSpellNameList();
 
