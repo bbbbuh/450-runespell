@@ -16,7 +16,9 @@ public enum SoundEffectNames
     Door,
     SpellSlotted,
     Fireball,
-    Heal
+    Heal,
+    MagicOrb,
+    MagicOrbExplosion
 }
 
 public enum SongNames
@@ -90,6 +92,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioClip heal;
 
+    [SerializeField]
+    private AudioClip magicOrb;
+
+    [SerializeField]
+    private AudioClip magicOrbExplosion;
+
     // End of Sound Effects
 
 
@@ -146,6 +154,8 @@ public class SoundManager : MonoBehaviour
             case SoundEffectNames.SpellSlotted: return spellSlotted;
             case SoundEffectNames.Fireball: return fireball;
             case SoundEffectNames.Heal: return heal;
+            case SoundEffectNames.MagicOrb: return magicOrb;
+            case SoundEffectNames.MagicOrbExplosion: return magicOrbExplosion;
             default: return null;
         }
     }

@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0042c7609b7d3be409be2e853007fbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 1
+  multiplier: 3
   magicOrbProjectile: {fileID: 8165806958545116302, guid: dff15952f8a84f546abf48c6c5515e5e, type: 3}
-  explosionPrefab: {fileID: 5290447589439242834, guid: 0cbc93242ca2b90468227b050faff7ce, type: 3}
 --- !u!212 &-5488444788668017310
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a9e8bba8197682742b34f589225e6287, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e13cccbae2cc9841a346f04fe383ef2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
