@@ -47,3 +47,10 @@ MonoBehaviour:
   enemyList: []
   enemyPrefab: {fileID: 4515889354722947207, guid: cf6b09447f14dee44bf85995a712cb3e, type: 3}
   player: {fileID: 0}
+  spawnLocations: {fileID: 0}
+  numEnemies: 0
+  exitPrefab: {fileID: 0}
+  exit: {fileID: 0}
+  fireball: {fileID: 4266245243320520260, guid: 96a62ec450a57654cabdf0a5f3b19234, type: 3}
+  heal: {fileID: 4231670407784535179, guid: d3b29629a40cbf64cab034bcd171552e, type: 3}
+  magicOrb: {fileID: 200074358347633982, guid: 9b208d1cb7b25a442936ef8fb604e89e, type: 3}
