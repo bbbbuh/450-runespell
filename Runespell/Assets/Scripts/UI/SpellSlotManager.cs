@@ -29,7 +29,7 @@ public class SpellSlotManager : MonoBehaviour
     private RectTransform twoSecBarTransform;
     private RectTransform fiveSecBarTransform;
     private RectTransform tenSecBarTransform;
-
+    
     [SerializeField]
     private float maxHeight = 100.0f;
 
