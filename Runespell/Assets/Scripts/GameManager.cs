@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScreen");
             nextScene = false;
+            playerHealth = 100;
             Destroy(this.gameObject);
         }
     }
@@ -66,8 +67,7 @@ public class GameManager : MonoBehaviour
         if (nextScene)
         {
             SoundManager.instance.PlaySoundEffect(SoundEffectNames.Door);
-
-            nextScene = false;
+            
             //playerHealth = player.GetComponent<Player>().Health;
 
             //savedSpellNames = projectileManager.GetComponent<ProjectileController>().GetSpellNameList();
@@ -86,8 +86,8 @@ public class GameManager : MonoBehaviour
             {
                 spell3 = true;
             }
-            
-            Debug.Log(spell1);
+
+            currentScene = SceneManager.GetActiveScene().name;
             if (currentScene == "Room_Tutorial1")
             {
                 currentScene = "Room_Tutorial2";
@@ -103,11 +103,13 @@ public class GameManager : MonoBehaviour
                 currentScene = sceneNames[Random.Range(0, sceneNames.Count)];
                 SceneManager.LoadScene(currentScene);
             }
+            nextScene = false;
         }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        nextScene = false;
         currentScene = SceneManager.GetActiveScene().name;
         player = GameObject.Find("Player");
         projectileManager = GameObject.Find("ProjectileController");
@@ -140,7 +142,6 @@ public class GameManager : MonoBehaviour
             //spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(heal, 2);
             //spellSlotManager.Slots[2].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = heal.GetComponent<SpriteRenderer>().sprite;
         }
-        nextScene = false;
     }
 
     void LoadSpells(SpellNames name, int slotNum)
