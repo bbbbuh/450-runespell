@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8061787751173196177}
   - component: {fileID: 327789943369099615}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5922065555342250804}
   - component: {fileID: 4846125348611890051}
   - component: {fileID: 916648015918345683}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SpellSlot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2417419218727003085}
   - component: {fileID: 3823348248011627516}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 4095496269557668725}
   - component: {fileID: 8228255192130141321}
   - component: {fileID: 103752961869618732}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SpellSlot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ Transform:
   m_GameObject: {fileID: 4411647789772160171}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0043332763}
+  m_LocalPosition: {x: 1.75, y: 1.25, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 0.7507508}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -440,7 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2111425624135918500}
   - component: {fileID: 2928138077113595432}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 2471605868463256933}
   - component: {fileID: 7008994155877775994}
   - component: {fileID: 7541348872247815802}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SpellSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ Transform:
   m_GameObject: {fileID: 7559272386895620081}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 0, z: 0}
+  m_LocalPosition: {x: 1.75, y: 2.5, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 0.7507508}
   m_ConstrainProportionsScale: 1
   m_Children:

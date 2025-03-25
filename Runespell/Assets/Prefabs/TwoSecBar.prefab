@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7393844404186911538}
   - component: {fileID: 4208910373062821522}
-  - component: {fileID: 4248197542197309127}
+  - component: {fileID: 5238550406249436052}
   m_Layer: 5
   m_Name: TwoSecBar
   m_TagString: Untagged
@@ -28,7 +28,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,7 +45,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6456734572310365967}
   m_CullTransparentMesh: 1
---- !u!114 &4248197542197309127
+--- !u!114 &5238550406249436052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -512,11 +512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7393844404186911538, guid: 9e8074655dfca1f43a8e60270ef54a88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -248.74539
+      value: 252.4
       objectReference: {fileID: 0}
     - target: {fileID: 7393844404186911538, guid: 9e8074655dfca1f43a8e60270ef54a88, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -568.5609
+      value: -209
       objectReference: {fileID: 0}
     - target: {fileID: 7393844404186911538, guid: 9e8074655dfca1f43a8e60270ef54a88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1932,11 +1932,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1274308965893786880, guid: c2da5a92e3bfd6347b95998fbe5dc31b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 252.4
       objectReference: {fileID: 0}
     - target: {fileID: 1274308965893786880, guid: c2da5a92e3bfd6347b95998fbe5dc31b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -569.0722
+      value: -389.3
       objectReference: {fileID: 0}
     - target: {fileID: 1274308965893786880, guid: c2da5a92e3bfd6347b95998fbe5dc31b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2173,11 +2173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7991085439305353763, guid: 531dfc734f2f58046a4e8825f1bfd1b7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 248.9691
+      value: 252.4
       objectReference: {fileID: 0}
     - target: {fileID: 7991085439305353763, guid: 531dfc734f2f58046a4e8825f1bfd1b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -569.0722
+      value: -565.8
       objectReference: {fileID: 0}
     - target: {fileID: 7991085439305353763, guid: 531dfc734f2f58046a4e8825f1bfd1b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3091,9 +3091,9 @@ SceneRoots:
   - {fileID: 352478474}
   - {fileID: 1707332738}
   - {fileID: 1266544945}
+  - {fileID: 1387407160}
   - {fileID: 318495549}
   - {fileID: 706752358}
   - {fileID: 1501240130}
   - {fileID: 1374601806}
   - {fileID: 854191486}
-  - {fileID: 1387407160}
