@@ -55,6 +55,13 @@ public class GameManager : MonoBehaviour
     {
         if (playerHealth <= 0)
         {
+            savedSpellNames[0] = SpellNames.None;
+            savedSpellNames[1] = SpellNames.None;
+            savedSpellNames[2] = SpellNames.None;
+            spell1 = false;
+            spell2 = false;
+            spell3 = false;
+
             SceneManager.LoadScene("LoseScreen");
             nextScene = false;
             Destroy(this.gameObject);
@@ -120,7 +127,8 @@ public class GameManager : MonoBehaviour
         projectileManager.GetComponent<ProjectileController>().EnemyManager = enemyManager.GetComponent<EnemyManager>();
 
         player.GetComponent<Player>().Health = playerHealth;
-        
+        //player.GetComponent<Player>().SetHealthUI();
+
         spellSlotManager.GetComponent<SpellSlotManager>().ProjectileController = projectileManager.GetComponent<ProjectileController>();
         if (spell1)
         {

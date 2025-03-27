@@ -110,6 +110,9 @@ MonoBehaviour:
   loseScene: loseScreen
   healthText: {fileID: 0}
   damageEffectTime: 0
+  healthBar: {fileID: 0}
+  maxHeight: 100
+  maxWidth: 100
 --- !u!50 &1632219812899075192
 Rigidbody2D:
   serializedVersion: 4

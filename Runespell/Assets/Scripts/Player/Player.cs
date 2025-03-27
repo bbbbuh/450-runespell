@@ -19,13 +19,28 @@ public class Player : Character
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private float damageEffectTime;
 
-    private float maxHealth;
+    private float maxHealth = 100;
+
+    // Health Bar
+
+    [SerializeField]
+    private GameObject healthBar;
+
+    private RectTransform healthBarTransform;
+
+    [SerializeField]
+    private float maxHealthBarHeight = 100.0f;
+
+    [SerializeField]
+    private float maxHealthBarWidth = 100.0f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = health;
+        //maxHealth = health;
+        healthBarTransform = healthBar.GetComponent<RectTransform>();
+        SetHealthUI();
     }
 
     // Update is called once per frame
@@ -54,7 +69,9 @@ public class Player : Character
 
             lastHit = Time.time;
             health -= amount;
-            healthText.text = "Health: " + health;
+
+            SetHealthUI();
+
             damageEffectTime = Time.time;
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
@@ -69,13 +86,19 @@ public class Player : Character
         {
             health = maxHealth;
         }
+        SetHealthUI();
+    }
 
+    public void SetHealthUI()
+    {
         healthText.text = "Health: " + health;
+        float newHeight = Mathf.Lerp(0.0f, maxHealthBarHeight, health / maxHealth);
+        healthBarTransform.sizeDelta = new Vector2(maxHealthBarWidth, newHeight);
     }
 
     //Get and set statements
     public float Width { get { return width; } }
     public float Height { get { return height; } }
-    public float Health { get { return health; } set { health = value; healthText.text = "Health: " + health; } }
+    public float Health { get { return health; } set { health = value; } }
     public float MaxHealth { get { return maxHealth; } }
 }
