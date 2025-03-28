@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,28 +13,17 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameObject exitPrefab;
     [SerializeField] private GameObject exit;
 
-    // Spells
-
-    [SerializeField] private GameObject fireball;
-    [SerializeField] private GameObject heal;
-    [SerializeField] private GameObject magicOrb;
-
-    // Used to switch songs only once
-    private bool noEnemies = false;
-
     // Start is called before the first frame update
     void Start()
     {
         //InvokeRepeating("SpawnEnemy", 2.0f, 2.0f);
         SpawnEnemy();
-        SpawnExit();
-        SoundManager.instance.SwitchSong(GameState.Battle);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SpawnExit();
     }
 
     private void LateUpdate()
@@ -55,7 +43,6 @@ public class EnemyManager : MonoBehaviour
                     GameObject enemy = Instantiate(enemyPrefab, child.gameObject.transform.position, Quaternion.identity);
                     enemy.GetComponent<Enemy>().Target = player;
                     enemyList.Add(enemy);
-                    noEnemies = false;
                 }
             }
         }
@@ -72,44 +59,20 @@ public class EnemyManager : MonoBehaviour
                 {
                     if (enemyList[i].GetComponent<Enemy>().Health < 0)
                     {
-                        SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyDeath);
-                        SpawnSpellDrop(enemyList[i].transform.position);
                         Destroy(enemyList[i]);
                         enemyList.RemoveAt(i);
                     }
                 }
             }
         }
-        if (enemyList.Count == 0)
-        {
-            if (noEnemies == false)
-            {
-                SoundManager.instance.SwitchSong(GameState.Calm);
-                exit.GetComponent<Door>().OpenDoor();
-                noEnemies = true;
-            }
-        }
+        
     }
 
     void SpawnExit()
     {
-        exit = Instantiate(exitPrefab, new Vector2(0, 4.5f), Quaternion.identity);
-    }
-
-    void SpawnSpellDrop(Vector2 position)
-    {
-        float spellCheck = UnityEngine.Random.Range(0.0f, 100.0f);
-        //UnityEngine.Debug.Log("Spell Check: " + spellCheck);
-        if (spellCheck <= 25.0f)
+        if (enemyList.Count == 0 && exit == null)
         {
-            int spellSelect = (int)UnityEngine.Random.Range(0.0f, 3.0f);
-            switch (spellSelect)
-            {
-                case 0: Instantiate(fireball, position, Quaternion.identity); break;
-                case 1: Instantiate(heal, position, Quaternion.identity); break;
-                case 2: Instantiate(magicOrb, position, Quaternion.identity); break;
-                default: Instantiate(magicOrb, position, Quaternion.identity); break;
-            }
+            exit = Instantiate(exitPrefab, new Vector2(0,4.5f), Quaternion.identity);
         }
     }
 

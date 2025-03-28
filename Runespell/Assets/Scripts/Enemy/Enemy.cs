@@ -27,13 +27,6 @@ public class Enemy : Character
 
     [SerializeField]
     private Vector2 positionDifference;
-
-    [SerializeField]
-    private float damageEffectTime;
-
-    [SerializeField]
-    private GameObject corpsePrefab;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +41,6 @@ public class Enemy : Character
         positionDifference = newPosition - new Vector2(transform.position.x,transform.position.y);
         transform.position = newPosition;
 
-        
         animations();
     }
 
@@ -88,24 +80,8 @@ public class Enemy : Character
                 animator.SetBool("WalkingDown", true);
             }
         }
-        if (Time.time - damageEffectTime > 0.2f)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        }
-
-    }
-
-    public void TakeDamage(float amount)
-    {
-        health -= amount;
-        damageEffectTime = Time.time;
-        this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-    }
-
-    private void OnDestroy()
-    {
-        GameObject corpse = Instantiate(corpsePrefab, this.gameObject.transform.position, Quaternion.identity);
-        corpse.GetComponent<DyingEnemy>().SpawnTime = Time.time;
+        
+        
     }
 
     //Get and set statements

@@ -9,22 +9,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool nextScene;
     [SerializeField] GameObject player;
     [SerializeField] List<string> sceneNames;
-    [SerializeField] public float playerHealth;
+    [SerializeField] float playerHealth;
     [SerializeField] SpellSlotManager spellSlotManager;
     [SerializeField] bool spell1;
     [SerializeField] bool spell2;
     [SerializeField] bool spell3;
     [SerializeField] GameObject projectileManager;
     [SerializeField] FireballSpell fireball;
-    [SerializeField] MagicOrbSpell magicOrb;
-    [SerializeField] HealSpell heal;
     [SerializeField] GameObject collisionManager;
     [SerializeField] GameObject enemyManager;
-
-    [SerializeField]
-    public List<SpellNames> savedSpellNames = new List<SpellNames>(3);
-
-    public float PlayerHealth { get { return playerHealth; } }
 
     private void Awake()
     {
@@ -42,29 +35,22 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
-        playerHealth = player.GetComponent<Player>().Health;
-
         PlayerDeath();
         SceneTransition();
+        
     }
 
     void PlayerDeath()
     {
-        if (playerHealth <= 0)
+        if (player.GetComponent<Player>().Health<=0)
         {
-            savedSpellNames[0] = SpellNames.None;
-            savedSpellNames[1] = SpellNames.None;
-            savedSpellNames[2] = SpellNames.None;
-            spell1 = false;
-            spell2 = false;
-            spell3 = false;
-
             SceneManager.LoadScene("LoseScreen");
             nextScene = false;
-            playerHealth = 100;
             Destroy(this.gameObject);
         }
     }
@@ -73,11 +59,8 @@ public class GameManager : MonoBehaviour
     {
         if (nextScene)
         {
-            SoundManager.instance.PlaySoundEffect(SoundEffectNames.Door);
-            
-            //playerHealth = player.GetComponent<Player>().Health;
-
-            //savedSpellNames = projectileManager.GetComponent<ProjectileController>().GetSpellNameList();
+            nextScene = false;
+            playerHealth = player.GetComponent<Player>().Health;
 
             if (projectileManager.GetComponent<ProjectileController>().TwoSecSlot != null)
             {
@@ -93,8 +76,8 @@ public class GameManager : MonoBehaviour
             {
                 spell3 = true;
             }
-
-            currentScene = SceneManager.GetActiveScene().name;
+            
+            Debug.Log(spell1);
             if (currentScene == "Room_Tutorial1")
             {
                 currentScene = "Room_Tutorial2";
@@ -110,13 +93,11 @@ public class GameManager : MonoBehaviour
                 currentScene = sceneNames[Random.Range(0, sceneNames.Count)];
                 SceneManager.LoadScene(currentScene);
             }
-            nextScene = false;
         }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        nextScene = false;
         currentScene = SceneManager.GetActiveScene().name;
         player = GameObject.Find("Player");
         projectileManager = GameObject.Find("ProjectileController");
@@ -129,47 +110,24 @@ public class GameManager : MonoBehaviour
         projectileManager.GetComponent<ProjectileController>().EnemyManager = enemyManager.GetComponent<EnemyManager>();
 
         player.GetComponent<Player>().Health = playerHealth;
-        //player.GetComponent<Player>().SetHealthUI();
-
+        
         spellSlotManager.GetComponent<SpellSlotManager>().ProjectileController = projectileManager.GetComponent<ProjectileController>();
         if (spell1)
         {
-            LoadSpells(savedSpellNames[0], 0);
-            //spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 0);
-            //spellSlotManager.Slots[0].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
+            spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 0);
+            spellSlotManager.Slots[0].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
         }
         if (spell2)
         {
-            LoadSpells(savedSpellNames[1], 1);
-            //spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 1);
-            //spellSlotManager.Slots[1].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
+            spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 1);
+            spellSlotManager.Slots[1].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
         }
         if (spell3)
         {
-            LoadSpells(savedSpellNames[2], 2);
-            //spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(heal, 2);
-            //spellSlotManager.Slots[2].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = heal.GetComponent<SpriteRenderer>().sprite;
+            spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, 2);
+            spellSlotManager.Slots[2].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
         }
-    }
-
-    void LoadSpells(SpellNames name, int slotNum)
-    {
-        switch (name)
-        {
-            case SpellNames.Fireball:
-                spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(fireball, slotNum);
-                spellSlotManager.Slots[slotNum].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = fireball.GetComponent<SpriteRenderer>().sprite;
-                break;
-            case SpellNames.Heal:
-                spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(heal, slotNum);
-                spellSlotManager.Slots[slotNum].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = heal.GetComponent<SpriteRenderer>().sprite;
-                break;
-            case SpellNames.MagicOrb:
-                spellSlotManager.GetComponent<SpellSlotManager>().AddSpellToProjectileManager(magicOrb, slotNum);
-                spellSlotManager.Slots[slotNum].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = magicOrb.GetComponent<SpriteRenderer>().sprite;
-                break;
-            default: break;
-        }
+        nextScene = false;
     }
 
     public bool NextScene { get { return nextScene; } set { nextScene = value; } }

@@ -42,9 +42,4 @@ public class Spell : MonoBehaviour
     {
 
     }
-
-    public virtual SpellNames GetSpellName()
-    {
-        return SpellNames.Fireball;
-    }
 }

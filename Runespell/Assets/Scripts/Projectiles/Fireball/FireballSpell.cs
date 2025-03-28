@@ -12,8 +12,7 @@ public class FireballSpell : Spell
     // Start is called before the first frame update
     void Start()
     {
-        //UnityEngine.Debug.Log("SPELL MULT: " + this.Multiplier);
-        //SetProjectileMult(this.Multiplier);
+
     }
 
     // Update is called once per frame
@@ -38,7 +37,6 @@ public class FireballSpell : Spell
             proj.Direction = direction;
             projectileController.Projectiles.Add(proj);
             proj.GetComponent<Projectile>().TimeCast = Time.time;
-            SoundManager.instance.PlaySoundEffect(SoundEffectNames.Fireball);
         }
         
     }
@@ -46,10 +44,5 @@ public class FireballSpell : Spell
     public override void SetProjectileMult(float mult)
     {
         fireballProjectile.Multiplier = mult;
-    }
-
-    public override SpellNames GetSpellName()
-    {
-        return fireballProjectile.SpellName;
     }
 }

@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Enemies
-  - Spells
+  - 
+  - 
   - 
   - 
   - 
@@ -40,16 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 77115469
-    locked: 0
-  - name: Gameplay
-    uniqueID: 1302562023
-    locked: 0
-  - name: Player
-    uniqueID: 3227081467
-    locked: 0
-  - name: UI
-    uniqueID: 3380298477
     locked: 0

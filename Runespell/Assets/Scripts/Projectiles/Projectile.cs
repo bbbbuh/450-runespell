@@ -2,14 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SpellNames
-{
-    Fireball,
-    Heal,
-    MagicOrb,
-    None
-}
-
 public class Projectile : MonoBehaviour
 {
     //damage mult
@@ -29,16 +21,12 @@ public class Projectile : MonoBehaviour
 
     protected Player player;
 
-    protected SpellNames spellName;
-
     protected Vector3 direction;
     public Vector3 Direction { get { return direction; } set { direction = value; } }
 
     public float Multiplier { get { return multiplier; } set { multiplier = value; } }
 
     public float BaseDamage { get { return baseDamage; } }
-
-    public SpellNames SpellName { get { return spellName; } }
 
     // Start is called before the first frame update
     void Start()

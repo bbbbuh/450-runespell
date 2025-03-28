@@ -42,10 +42,6 @@ public class ProjectileController : MonoBehaviour
     public EnemyManager EnemyManager { get { return enemyManager; } set { enemyManager = value; } }
     public Player Player { get { return player; } set {  player = value; } }
 
-    public float TwoSecTimer { get { return twoSecTimer; } }
-    public float FiveSecTimer { get { return fiveSecTimer; } }
-    public float TenSecTimer { get { return tenSecTimer; } }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -136,13 +132,4 @@ public class ProjectileController : MonoBehaviour
             }
         }
     }
-
-    //public List<SpellNames> GetSpellNameList()
-    //{
-    //    List<SpellNames> temp = new List<SpellNames>();
-    //    temp.Add(TwoSecSlot.GetSpellName());
-    //    temp.Add(FiveSecSlot.GetSpellName());
-    //    temp.Add(TenSecSlot.GetSpellName());
-    //    return temp;
-    //}
 }

@@ -67,8 +67,6 @@ public class PlayerControls : MonoBehaviour
         isDashing = true;
         tr.emitting = true;
 
-        SoundManager.instance.PlaySoundEffect(SoundEffectNames.PlayerDash);
-
         // Calculate the dash direction and target position
         //Vector2 dashDirection = new Vector2(movement.x, movement.y).normalized;
         Vector2 startPosition = rb.position;
@@ -227,16 +225,6 @@ public class PlayerControls : MonoBehaviour
         movement = virtualJoystick.JoystickInput;
 
         Vector2 newPosition = clampedPosition + movement * speed * Time.fixedDeltaTime;
-
-        if (newPosition != rb.position)
-        {
-            SoundManager.instance.PlayWalk();
-        }
-        else
-        {
-            SoundManager.instance.StopWalk();
-        }
-
         positionDifference = rb.position - newPosition;
         rb.MovePosition(newPosition);
 

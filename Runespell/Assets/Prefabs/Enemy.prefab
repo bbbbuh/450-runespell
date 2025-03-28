@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8115990060465965844}
   - component: {fileID: 6361703260004740198}
   - component: {fileID: 6759337165510267149}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1302562023
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1337107517, guid: 757d13c462eacb94196972214a9f19f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -108,8 +108,6 @@ MonoBehaviour:
   health: 50
   animator: {fileID: 6759337165510267149}
   positionDifference: {x: 0, y: 0}
-  damageEffectTime: 0
-  corpsePrefab: {fileID: 2704950352056359078, guid: 3365c960092e0064c9e09fd4149178fa, type: 3}
 --- !u!50 &8115990060465965844
 Rigidbody2D:
   serializedVersion: 4
