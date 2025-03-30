@@ -6,7 +6,8 @@ public enum SpellNames
 {
     Fireball,
     Heal,
-    MagicOrb
+    MagicOrb,
+    None
 }
 
 public class Projectile : MonoBehaviour

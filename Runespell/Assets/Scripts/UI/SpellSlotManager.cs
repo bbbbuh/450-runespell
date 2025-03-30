@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class SpellSlotManager : MonoBehaviour
 {
@@ -49,6 +51,10 @@ public class SpellSlotManager : MonoBehaviour
     {
         projectileController = GameObject.Find("ProjectileController").GetComponent<ProjectileController>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        Canvas canvas = FindObjectOfType<Canvas>();
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = 10;
 
         twoSecBarTransform = twoSecBar.GetComponent<RectTransform>();
         fiveSecBarTransform = fiveSecBar.GetComponent<RectTransform>();
