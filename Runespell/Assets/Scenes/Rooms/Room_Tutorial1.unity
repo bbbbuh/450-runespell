@@ -232,7 +232,6 @@ RectTransform:
   - {fileID: 8625503082049735466}
   - {fileID: 934958764}
   - {fileID: 68273606}
-  - {fileID: 616421029}
   - {fileID: 1849014906}
   - {fileID: 1201787944}
   m_Father: {fileID: 0}
@@ -524,11 +523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a14c32ce080cb43a43344910a2cb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &616421029 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8962312337996387861, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
-  m_PrefabInstance: {fileID: 3229102874070192693}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &706231274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,7 +2659,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 42800635}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6142474016172237265, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
       propertyPath: m_Name
@@ -2673,27 +2667,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8962312337996387861, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 390.00012
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8962312337996387861, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 390.00012
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8962312337996387861, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 142.03279
+      value: 0.9986682
       objectReference: {fileID: 0}
     - target: {fileID: 8962312337996387861, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -297.00006
+      value: -2.0882819
       objectReference: {fileID: 0}
     - target: {fileID: 8962312337996387861, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -392.30002
+      value: -2.75836
       objectReference: {fileID: 0}
     - target: {fileID: 8962312337996387861, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12782.954
+      value: 0.11984253
       objectReference: {fileID: 0}
     - target: {fileID: 8962312337996387861, guid: 544d1441c2dc22b4c82b43908baec5d9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3208,3 +3202,4 @@ SceneRoots:
   - {fileID: 3497996644249754689}
   - {fileID: 1678450363}
   - {fileID: 1176825976406913207}
+  - {fileID: 3229102874070192693}
