@@ -727,25 +727,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: heal
-      value: 
-      objectReference: {fileID: 4596090499413143371, guid: d3b29629a40cbf64cab034bcd171552e, type: 3}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1360894247}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: fireball
-      value: 
-      objectReference: {fileID: 2130650088190564591, guid: 96a62ec450a57654cabdf0a5f3b19234, type: 3}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: magicOrb
-      value: 
-      objectReference: {fileID: 5852879321848657351, guid: 9b208d1cb7b25a442936ef8fb604e89e, type: 3}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: nextScene
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
       propertyPath: enemyManager
       value: 
@@ -762,18 +746,6 @@ PrefabInstance:
       propertyPath: projectileManager
       value: 
       objectReference: {fileID: 9993690}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: sceneNames.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: sceneNames.Array.data[0]
-      value: Room_Fight
-      objectReference: {fileID: 0}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: savedSpellNames.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1172,10 +1144,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3166223983726676226, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1360894248}
-    - target: {fileID: 3166223983726676226, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
       propertyPath: virtualJoystick
       value: 
       objectReference: {fileID: 1079028924}
@@ -1183,9 +1151,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6932766673088886252, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
-      propertyPath: health
-      value: 10000
+    - target: {fileID: 4967054948605110303, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 224
       objectReference: {fileID: 0}
     - target: {fileID: 6932766673088886252, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
       propertyPath: healthBar
@@ -1203,11 +1171,6 @@ PrefabInstance:
 --- !u!1 &1360894247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4543529233121467435, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
-  m_PrefabInstance: {fileID: 1360894246}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1360894248 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6352679400515598743, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
   m_PrefabInstance: {fileID: 1360894246}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1379166521
