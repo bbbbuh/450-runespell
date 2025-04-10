@@ -47,5 +47,19 @@ MonoBehaviour:
   currentScene: 
   nextScene: 0
   player: {fileID: 0}
-  sceneNames: []
+  sceneNames:
+  - Room_Fight
+  - Room_Fight_2
+  - Room_Fight_3
   playerHealth: 100
+  spellSlotManager: {fileID: 0}
+  spell1: 0
+  spell2: 0
+  spell3: 0
+  projectileManager: {fileID: 0}
+  fireball: {fileID: 2130650088190564591, guid: 96a62ec450a57654cabdf0a5f3b19234, type: 3}
+  magicOrb: {fileID: 5852879321848657351, guid: 9b208d1cb7b25a442936ef8fb604e89e, type: 3}
+  heal: {fileID: 4596090499413143371, guid: d3b29629a40cbf64cab034bcd171552e, type: 3}
+  collisionManager: {fileID: 0}
+  enemyManager: {fileID: 0}
+  savedSpellNames: 000000000000000000000000

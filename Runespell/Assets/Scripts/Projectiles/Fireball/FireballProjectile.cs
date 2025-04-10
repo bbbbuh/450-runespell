@@ -30,5 +30,4 @@ public class FireballProjectile : Projectile
         explosion.GetComponent<FireballExplosion>().SpawnTime = Time.time;
     }
 
-
 }

@@ -727,25 +727,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: heal
-      value: 
-      objectReference: {fileID: 4596090499413143371, guid: d3b29629a40cbf64cab034bcd171552e, type: 3}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1360894247}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: fireball
-      value: 
-      objectReference: {fileID: 2130650088190564591, guid: 96a62ec450a57654cabdf0a5f3b19234, type: 3}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: magicOrb
-      value: 
-      objectReference: {fileID: 5852879321848657351, guid: 9b208d1cb7b25a442936ef8fb604e89e, type: 3}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: nextScene
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
       propertyPath: enemyManager
       value: 
@@ -762,18 +746,6 @@ PrefabInstance:
       propertyPath: projectileManager
       value: 
       objectReference: {fileID: 9993690}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: sceneNames.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: sceneNames.Array.data[0]
-      value: Room_Fight
-      objectReference: {fileID: 0}
-    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
-      propertyPath: savedSpellNames.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1096,9 +1068,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6932766673088886252, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
-      propertyPath: health
-      value: 10000
+    - target: {fileID: 4967054948605110303, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 224
       objectReference: {fileID: 0}
     - target: {fileID: 6932766673088886252, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
       propertyPath: healthBar
@@ -1118,13 +1090,75 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4543529233121467435, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
   m_PrefabInstance: {fileID: 1360894246}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1360894248 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6352679400515598743, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
-  m_PrefabInstance: {fileID: 1360894246}
+--- !u!1 &1379166521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1401560877
-PrefabInstance:
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379166522}
+  - component: {fileID: 1379166524}
+  - component: {fileID: 1379166523}
+  m_Layer: 5
+  m_Name: JoystickHandle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1379166522
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379166521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1079028923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1379166523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379166521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: da9a3ff379221d5409850c44e337f528, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 0
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1379166524
+CanvasRenderer
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:

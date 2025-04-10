@@ -119,7 +119,7 @@ public class PlayerControls : MonoBehaviour
                 animator.SetBool("WalkingLeft", true);
             }
         }
-        else
+        else if (Mathf.Abs(positionDifference.x) < Mathf.Abs(positionDifference.y))
         {
             if (positionDifference.y < 0)
             {
@@ -135,6 +135,13 @@ public class PlayerControls : MonoBehaviour
                 animator.SetBool("WalkingUp", false);
                 animator.SetBool("WalkingDown", true);
             }
+        }
+        else
+        {
+            animator.SetBool("WalkingLeft", false);
+            animator.SetBool("WalkingRight", false);
+            animator.SetBool("WalkingUp", false);
+            animator.SetBool("WalkingDown", false);
         }
     }
 
