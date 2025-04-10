@@ -74,7 +74,7 @@ public class EnemyManager : MonoBehaviour
                     {
                         SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyDeath);
                         SpawnSpellDrop(enemyList[i].transform.position);
-                        Destroy(enemyList[i]);
+                        enemyList[i].GetComponent<Enemy>().DestroySequence();
                         enemyList.RemoveAt(i);
                     }
                 }
