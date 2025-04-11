@@ -764,11 +764,15 @@ PrefabInstance:
       objectReference: {fileID: 9993690}
     - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
       propertyPath: sceneNames.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
       propertyPath: sceneNames.Array.data[1]
       value: Room_Fight_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167148289278368155, guid: 767ac2c4703b9ad4b98b65d56243b890, type: 3}
+      propertyPath: sceneNames.Array.data[2]
+      value: Room_Fight_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1212,10 +1216,6 @@ PrefabInstance:
     - target: {fileID: 4543529233121467435, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4967054948605110303, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 224
       objectReference: {fileID: 0}
     - target: {fileID: 6932766673088886252, guid: eba429c8c3d87b543bd6b5708f37b016, type: 3}
       propertyPath: healthBar
