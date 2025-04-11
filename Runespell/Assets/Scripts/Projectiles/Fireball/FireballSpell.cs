@@ -12,8 +12,8 @@ public class FireballSpell : Spell
     // Start is called before the first frame update
     void Start()
     {
-        //UnityEngine.Debug.Log("SPELL MULT: " + this.Multiplier);
-        //SetProjectileMult(this.Multiplier);
+        UnityEngine.Debug.Log("SPELL MULT: " + this.Multiplier);
+        SetProjectileMult(this.Multiplier);
     }
 
     // Update is called once per frame

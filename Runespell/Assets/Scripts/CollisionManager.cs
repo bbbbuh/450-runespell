@@ -67,14 +67,14 @@ public class CollisionManager : MonoBehaviour
                         {
                             case SpellNames.Fireball:
                                 // UnityEngine.Debug.Log("MULT: " + projectiles[j].Multiplier);
-                                enemyList[i].GetComponent<Enemy>().TakeDamage(projectiles[j].BaseDamage); // * projectiles[j].Multiplier;
+                                enemyList[i].GetComponent<Enemy>().TakeDamage(projectiles[j].BaseDamage * projectiles[j].Multiplier); // * projectiles[j].Multiplier;
                                 SoundManager.instance.PlaySoundEffect(SoundEffectNames.EnemyHurt);
                                 projectiles[j].Used = true;
                                 break;
                             case SpellNames.MagicOrb:
                                 SoundManager.instance.PlaySoundEffect(SoundEffectNames.MagicOrbExplosion);
                                 List<GameObject> impactedEnemyList = new List<GameObject>();
-                                float explosionRadius = 1.0f; // * projectiles[j].Multiplier
+                                float explosionRadius = 1.0f * projectiles[j].Multiplier; // * projectiles[j].Multiplier
 
                                 for (int k = enemyList.Count - 1; k >= 0; k--)
                                 {
