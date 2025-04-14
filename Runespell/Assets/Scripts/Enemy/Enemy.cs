@@ -102,10 +102,11 @@ public class Enemy : Character
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
-    private void OnDestroy()
+    public void DestroySequence()
     {
         GameObject corpse = Instantiate(corpsePrefab, this.gameObject.transform.position, Quaternion.identity);
         corpse.GetComponent<DyingEnemy>().SpawnTime = Time.time;
+        Destroy(this.gameObject);
     }
 
     //Get and set statements

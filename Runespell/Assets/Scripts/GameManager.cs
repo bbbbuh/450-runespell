@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SoundManager.instance.SetUpBattleSongs();
+        SoundManager.instance.SetUpWalkAudio();
     }
 
     void OnEnable()
@@ -55,9 +56,17 @@ public class GameManager : MonoBehaviour
     {
         if (playerHealth <= 0)
         {
+            savedSpellNames[0] = SpellNames.None;
+            savedSpellNames[1] = SpellNames.None;
+            savedSpellNames[2] = SpellNames.None;
+            spell1 = false;
+            spell2 = false;
+            spell3 = false;
+
             SceneManager.LoadScene("LoseScreen");
             nextScene = false;
             playerHealth = 100;
+            SoundManager.instance.ResetSongs();
             Destroy(this.gameObject);
         }
     }

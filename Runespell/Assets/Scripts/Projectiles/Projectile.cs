@@ -6,13 +6,14 @@ public enum SpellNames
 {
     Fireball,
     Heal,
-    MagicOrb
+    MagicOrb,
+    None
 }
 
 public class Projectile : MonoBehaviour
 {
     //damage mult
-    protected float multiplier;
+    protected float multiplier = 1;
 
     [SerializeField]
     protected float baseDamage;

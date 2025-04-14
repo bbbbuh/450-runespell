@@ -12,7 +12,7 @@ public class PlayerControls : MonoBehaviour
 
     // gets data from the virtual Joystick
     [SerializeField]
-    private VirtualJoystick virtualJoystick;
+    private Joystick joystick;
 
     private Vector2 movement;
     private Rigidbody2D rb;
@@ -55,13 +55,13 @@ public class PlayerControls : MonoBehaviour
         playerHalfHeight = GetComponent<SpriteRenderer>().bounds.extents.y / 2;
     }
 
-    private void OnMovement(InputValue value)
+    /*private void OnMovement(InputValue value)
     {
         //movement = value.Get<Vector2>();
         movement = virtualJoystick.JoystickInput;
-    }
+    }*/
 
-    private IEnumerator OnDash(Vector2 dashDirection)
+   /* private IEnumerator OnDash(Vector2 dashDirection)
     {
         canDash = false;
         isDashing = true;
@@ -98,7 +98,7 @@ public class PlayerControls : MonoBehaviour
         // TODO: Make this work
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true; 
-    }
+    }*/
 
     private void Animations()
     {
@@ -119,7 +119,7 @@ public class PlayerControls : MonoBehaviour
                 animator.SetBool("WalkingLeft", true);
             }
         }
-        else
+        else if (Mathf.Abs(positionDifference.x) < Mathf.Abs(positionDifference.y))
         {
             if (positionDifference.y < 0)
             {
@@ -136,9 +136,16 @@ public class PlayerControls : MonoBehaviour
                 animator.SetBool("WalkingDown", true);
             }
         }
+        else
+        {
+            animator.SetBool("WalkingLeft", false);
+            animator.SetBool("WalkingRight", false);
+            animator.SetBool("WalkingUp", false);
+            animator.SetBool("WalkingDown", false);
+        }
     }
 
-    private void DetectSwipe()
+    /*private void DetectSwipe()
     {
         // Use the mouse's right button and position to simulate touch if no touchscreen is available
         bool isTouchScreenAvailable = Touchscreen.current != null;
@@ -200,23 +207,23 @@ public class PlayerControls : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
 
 
     private void FixedUpdate()
     {
-        if (isDashing)
+        /*if (isDashing)
         {
             return;
-        }
+        }*/
 
         //if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         //{
         //    StartCoroutine(OnDash());
         //}
 
-        DetectSwipe();
+        /*DetectSwipe();*/
 
         // Clamp position before applying movement
         float clampedX = Mathf.Clamp(rb.position.x, -2.5f + playerHalfWidth, 2.5f - playerHalfWidth);
@@ -224,7 +231,7 @@ public class PlayerControls : MonoBehaviour
         Vector2 clampedPosition = new Vector2(clampedX, clampedY);
 
         // Comment out the below line to disable mobile joystick
-        movement = virtualJoystick.JoystickInput;
+        movement = joystick.Direction;
 
         Vector2 newPosition = clampedPosition + movement * speed * Time.fixedDeltaTime;
 

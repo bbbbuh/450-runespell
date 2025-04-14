@@ -84,17 +84,21 @@ public class ProjectileController : MonoBehaviour
         tenSecTimer += Time.deltaTime;
 
         //fire spells when timer finishes
+        // OLD:            NEW
+        // 2 sec - 1x      2 sec - 1x
+        // 5 sec - 3x      4 sec - 3x
+        // 10 sec - 8x     6 sec - 6x
         if (twoSecTimer >= 2.0f && twoSecSlot != null)
         {
             twoSecTimer = 0;
             twoSecSlot.Fire();
         }
-        if (fiveSecTimer >= 5.0f && fiveSecSlot != null)
+        if (fiveSecTimer >= 4.0f && fiveSecSlot != null)
         {
             fiveSecTimer = 0;
             fiveSecSlot.Fire();
         }
-        if (tenSecTimer >= 10.0f && tenSecSlot != null)
+        if (tenSecTimer >= 6.0f && tenSecSlot != null)
         {   
             tenSecTimer = 0;
             tenSecSlot.Fire();

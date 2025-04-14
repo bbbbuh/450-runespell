@@ -139,9 +139,6 @@ public class SoundManager : MonoBehaviour
 
         // For now, since we just have one song, we'll use this
         // SoundManager.instance.PlaySong(SongNames.Battle);
-
-        SetUpBattleSongs();
-        SetUpWalkAudio();
     }
 
     private AudioClip GetSoundEffect(SoundEffectNames name)
@@ -216,7 +213,7 @@ public class SoundManager : MonoBehaviour
 
     // Functions for setting up changing battle music
 
-    private void SetUpBattleSongs()
+    public void SetUpBattleSongs()
     {
         // Spawns sound holding GameObject
         battleMusic_Battle = Instantiate(songObject, new Vector3(0, 0, 0), Quaternion.identity);
@@ -281,7 +278,7 @@ public class SoundManager : MonoBehaviour
 
     // Walking Audio Effects
 
-    private void SetUpWalkAudio()
+    public void SetUpWalkAudio()
     {
         // Spawns sound holding GameObject
         walk = Instantiate(songObject, new Vector3(0, 0, 0), Quaternion.identity);
@@ -305,4 +302,11 @@ public class SoundManager : MonoBehaviour
     }
 
     public void StopWalk() {walk.Stop();}
+
+    public void ResetSongs()
+    {
+        walk.clip = null;
+        battleMusic_Battle.clip = null;
+        battleMusic_Calm.clip = null;
+    }
 }
