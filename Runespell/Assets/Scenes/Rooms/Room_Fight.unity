@@ -1675,7 +1675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 52.725
+      value: 52.725006
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1806,6 +1806,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4846125348611890051, guid: 04c4218df3bc485498829120927da4b2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2afe3d3b6f96e3458e7a39e40ea47d9, type: 3}
     - target: {fileID: 5246433388931961543, guid: 04c4218df3bc485498829120927da4b2, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -1826,6 +1830,10 @@ PrefabInstance:
       propertyPath: projectileController
       value: 
       objectReference: {fileID: 852056802}
+    - target: {fileID: 7008994155877775994, guid: 04c4218df3bc485498829120927da4b2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 334cada0e4512ab4fa877054a349400c, type: 3}
     - target: {fileID: 7559272386895620081, guid: 04c4218df3bc485498829120927da4b2, type: 3}
       propertyPath: m_Layer
       value: 5
