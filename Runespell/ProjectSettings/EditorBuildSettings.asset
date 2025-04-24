@@ -41,5 +41,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/Room_Fight_2.unity
     guid: 3d6cdec1a4316f14293753413d05b991
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room_Fight_4.unity
+    guid: 744c45a6c94a2b64e872e54ab56676d7
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room_Fight_5.unity
+    guid: bd8d3770c9941c149b07531f96fce492
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room_Fight_6.unity
+    guid: d26b8e1165f891a4080f311df088a583
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room_Fight_7.unity
+    guid: ee8f7fe2f13690d4faa21760dff5873e
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 6fa7898d3d831164696cf07e6013e100, type: 2}

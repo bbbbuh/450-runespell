@@ -51,6 +51,10 @@ MonoBehaviour:
   - Room_Fight
   - Room_Fight_2
   - Room_Fight_3
+  - Room_Fight_4
+  - Room_Fight_5
+  - Room_Fight_6
+  - Room_Fight_7
   playerHealth: 100
   spellSlotManager: {fileID: 0}
   spell1: 0

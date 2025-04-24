@@ -38,11 +38,15 @@ public class Enemy : Character
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    private void Awake()
+    {
         var agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -50,7 +54,6 @@ public class Enemy : Character
         //Vector2 newPosition = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         //positionDifference = newPosition - new Vector2(transform.position.x,transform.position.y);
         //transform.position = newPosition;
-
         SetDestination(target);
         animations();
     }
@@ -124,7 +127,7 @@ public class Enemy : Character
         {
             this.gameObject.GetComponent<NavMeshAgent>().SetDestination(target.transform.position);
         }
-            
+        positionDifference = target.transform.position - transform.position;
        
     }
 

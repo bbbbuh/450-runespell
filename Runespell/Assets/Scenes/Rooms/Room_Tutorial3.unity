@@ -670,7 +670,7 @@ Transform:
   m_GameObject: {fileID: 765680461}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2176,6 +2176,10 @@ PrefabInstance:
       propertyPath: numEnemies
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6016750665018617873, guid: 32edc22aa2a5b4c4fae3289865a9fbfd, type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 4515889354722947207, guid: cf6b09447f14dee44bf85995a712cb3e, type: 3}
     - target: {fileID: 6016750665018617873, guid: 32edc22aa2a5b4c4fae3289865a9fbfd, type: 3}
       propertyPath: spawnLocations
       value: 

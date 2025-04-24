@@ -124,7 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7fd2d3f6dd403c243931201cafe7def8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 48de043f83ec8004fbcfa7e5be1385d9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -229,7 +229,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 831e91c8fba8cb14f950ce6543379748, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6bbb81147018b5f4ab499b9baba2c7ba, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -258,7 +258,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0939eda36241cad41965e19dcd4c4a6b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9d22712937c249943b3594de1e4fe517, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -345,7 +345,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy
+  m_Name: SmallEnemy
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: WalkingUp
@@ -433,7 +433,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 13a282b01dbd9b341bbf30b50c549b6c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8d8492f6995529a46bcf8f0e815426cf, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -487,13 +487,13 @@ AnimatorStateMachine:
     m_Position: {x: 150, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7756599597745669461}
-    m_Position: {x: 185, y: 65, z: 0}
+    m_Position: {x: 380, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6277424471210060579}
     m_Position: {x: 220, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5200012356171119839}
-    m_Position: {x: 255, y: 195, z: 0}
+    m_Position: {x: -10, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3504268171923983853}
     m_Position: {x: 290, y: 260, z: 0}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6759337165510267149}
   - component: {fileID: 4469319417298694646}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: BossEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,14 +103,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   target: {fileID: 0}
-  damage: 10
+  damage: 20
   width: 1
   height: 1
-  health: 50
+  health: 100
   animator: {fileID: 6759337165510267149}
   positionDifference: {x: 0, y: 0}
   damageEffectTime: 0
-  corpsePrefab: {fileID: 2704950352056359078, guid: 3365c960092e0064c9e09fd4149178fa, type: 3}
+  corpsePrefab: {fileID: 2704950352056359078, guid: e260af9fb96d15e4e909f901227973ed, type: 3}
 --- !u!50 &8115990060465965844
 Rigidbody2D:
   serializedVersion: 4
@@ -193,7 +193,7 @@ Animator:
   m_GameObject: {fileID: 4515889354722947207}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6d0b9f9321258d42aed130d237f052c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 56239b289313f87449fb13015707b302, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

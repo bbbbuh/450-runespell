@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6684114941970414451}
   - component: {fileID: 3435967121410028179}
   m_Layer: 0
-  m_Name: DyingEnemy
+  m_Name: BossEnemyDying
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ Animator:
   m_GameObject: {fileID: 2704950352056359078}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cd0d7df72f6776944ba125d7385f963e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3efe6e947def30a4da82ae12dc00cacf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

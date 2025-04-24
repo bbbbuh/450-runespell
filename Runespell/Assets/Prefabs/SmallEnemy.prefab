@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6759337165510267149}
   - component: {fileID: 4469319417298694646}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: SmallEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 1302562023
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1337107517, guid: 757d13c462eacb94196972214a9f19f0, type: 3}
+  m_Sprite: {fileID: 714516332, guid: 20b6781ae06b7dd428f14d021f351765, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,11 +106,11 @@ MonoBehaviour:
   damage: 10
   width: 1
   height: 1
-  health: 50
+  health: 25
   animator: {fileID: 6759337165510267149}
   positionDifference: {x: 0, y: 0}
   damageEffectTime: 0
-  corpsePrefab: {fileID: 2704950352056359078, guid: 3365c960092e0064c9e09fd4149178fa, type: 3}
+  corpsePrefab: {fileID: 2704950352056359078, guid: 8bf482644c3e6414897720cd282c7b65, type: 3}
 --- !u!50 &8115990060465965844
 Rigidbody2D:
   serializedVersion: 4
@@ -174,7 +174,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -193,7 +193,7 @@ Animator:
   m_GameObject: {fileID: 4515889354722947207}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6d0b9f9321258d42aed130d237f052c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3b9480612569e424ea1e19b953ab88eb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -214,7 +214,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.16
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
