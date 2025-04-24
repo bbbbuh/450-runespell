@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : Character
 {
@@ -37,18 +38,20 @@ public class Enemy : Character
     // Start is called before the first frame update
     void Start()
     {
-
+        var agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Moves enemy towards player
-        Vector2 newPosition = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-        positionDifference = newPosition - new Vector2(transform.position.x,transform.position.y);
-        transform.position = newPosition;
+        //Vector2 newPosition = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        //positionDifference = newPosition - new Vector2(transform.position.x,transform.position.y);
+        //transform.position = newPosition;
 
-        
+        SetDestination(target);
         animations();
     }
 
@@ -107,6 +110,22 @@ public class Enemy : Character
         GameObject corpse = Instantiate(corpsePrefab, this.gameObject.transform.position, Quaternion.identity);
         corpse.GetComponent<DyingEnemy>().SpawnTime = Time.time;
         Destroy(this.gameObject);
+    }
+
+   float agentDrift = 0.0001f; // minimal
+    void SetDestination(GameObject target)
+    {
+        if (Mathf.Abs(transform.position.x - target.transform.position.x) < agentDrift)
+        {
+            var driftPos = target.transform.position + new Vector3(agentDrift, 0f, 0f);
+            this.gameObject.GetComponent<NavMeshAgent>().SetDestination(driftPos);
+        }
+        else
+        {
+            this.gameObject.GetComponent<NavMeshAgent>().SetDestination(target.transform.position);
+        }
+            
+       
     }
 
     //Get and set statements
