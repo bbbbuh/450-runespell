@@ -54,4 +54,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Rooms/Room_Fight_7.unity
     guid: ee8f7fe2f13690d4faa21760dff5873e
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: e84bfa9409d737f41808208bad3fe7e1, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: f9b8f9b1e41ae8e44b1570e6cebc8adb, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 960fcbc172551da4fa29192b985f889a, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 6fa7898d3d831164696cf07e6013e100, type: 2}
